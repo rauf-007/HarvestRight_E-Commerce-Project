@@ -1,0 +1,26 @@
+[32mINFO    [0m root:verify_test_02.py:12 ********** Verifying HarvestRight Website Opens *********
+[32mINFO    [0m root:verify_test_02.py:14 ********** HarvestRight Website Opens Successfully *********
+[32mINFO    [0m root:verify_test_02.py:15 ********** Verifying Login *********
+[32mINFO    [0m root:verify_test_02.py:17 ********** Login is Successful *********
+[32mINFO    [0m root:verify_test_02.py:18 ********** Verifying it opens the latest quotation *********
+[32mINFO    [0m root:verify_test_02.py:20 ********** Latest quotation opens Successfully *********
+[32mINFO    [0m root:verify_test_02.py:24 ********** Verifying quotation send by e-mail *********
+[32mINFO    [0m root:verify_test_02.py:29 ********** Quotation Successfully send by e-mail *********
+[32mINFO    [0m root:salesflow_functions.py:23 ********** It is in quotation send state *******
+[32mINFO    [0m root:verify_test_02.py:38 ********** Verifying it redirects to the Customer Preview *********
+[32mINFO    [0m root:verify_test_02.py:40 ********** Redirects to the Customer Preview Successfully *********
+[32mINFO    [0m root:verify_test_02.py:41 ********** Verifying sign and pay is working *********
+[32mINFO    [0m root:verify_test_02.py:45 ********** Sign and pay is successful *********
+[32mINFO    [0m root:verify_test_02.py:47 ********** Verifying accept sign is working *********
+[32mINFO    [0m root:verify_test_02.py:50 ********** Accept and sign is Successful *********
+[32mINFO    [0m root:verify_test_02.py:52 ********** Verifying Credit card information entered *********
+[32mINFO    [0m root:verify_test_02.py:65 ********** Credit card information entered successfully *********
+[32mINFO    [0m root:salesflow_functions.py:33 ********** Payment Successfully Processed *******
+[32mINFO    [0m root:verify_test_02.py:71 ********** Verifying Quotation Download Functionality *******
+[32mINFO    [0m root:verify_test_02.py:73 ********** Quotation is Downloaded Successfully *******
+[32mINFO    [0m root:verify_test_02.py:74 ********** Verifying it redirects to edit mode *******
+[32mINFO    [0m root:verify_test_02.py:76 ********** Successfully redirects to edit mode *******
+[32mINFO    [0m root:salesflow_functions.py:46 ********** It is in SALES ORDER  state *******
+[32mINFO    [0m root:salesflow_functions.py:61 ********** Successfully created Purchase Order by Test Product 1  *******
+[32mINFO    [0m root:salesflow_functions.py:62 ********** Successfully created Manufacture Order by Test Product 2  *******
+[32mINFO    [0m root:salesflow_functions.py:63 ********** Successfully created Tasks and Projects by Test Product 3  *******

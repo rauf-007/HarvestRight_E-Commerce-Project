@@ -1,0 +1,29 @@
+test_all_test_cases.py::SalesTest::test_01
+--------------------------------------------------------------------
+Last Page: https://silverdaletech-harvest-right-do-not-delete-automatio-9873451.dev.odoo.com/web#cids=1&menu_id=183&action=315&model=sale.order&view_type=form
+ Duration: 80.93s
+  Browser: Chrome 117.0.5938.150
+   Driver: chromedriver 117.0.5938.92
+Timestamp: 1697116489  (Unix Timestamp)
+     Date: Thursday, 12 October 2023
+     Time: 6:14:49 PM  (Pakistan Standard Time, UTC+05:00)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\Admin\PycharmProjects\Harvest\tests\test_all_test_cases.py", line 16, in test_01
+    self.Testcase01()
+  File "C:\Users\Admin\PycharmProjects\Harvest\single_test_cases\verify_test_01.py", line 75, in Testcase01
+    self.send_keys(SalesFlow.test_product2, Keys.ENTER)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 1073, in send_keys
+    self.add_text(selector, text, by=by, timeout=timeout)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 988, in add_text
+    element = self.wait_for_element_visible(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 8457, in wait_for_element_visible
+    return page_actions.wait_for_element_visible(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\page_actions.py", line 508, in wait_for_element_visible
+    timeout_exception(NoSuchElementException, message)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\page_actions.py", line 266, in timeout_exception
+    raise exc(msg)
+Exception: Message: 
+ Element {//tbody/tr[2]/td[2]/div[1]/div[1]/div[1]/div[1]/input[1]} was not present after 10 seconds!

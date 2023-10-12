@@ -1,0 +1,59 @@
+tests/test_all_test_cases.py::SalesTest::test_04
+--------------------------------------------------------------------
+Last Page: https://silverdaletech-harvest-right-do-not-delete-automatio-9873451.dev.odoo.com/web#id=1996&menu_id=249&cids=1&action=377&active_id=180&model=stock.picking&view_type=form
+ Duration: 109.94s
+  Browser: Chrome 117.0.5938.134
+   Driver: chromedriver 117.0.5938.92
+Timestamp: 1697057312  (Unix Timestamp)
+     Date: Thursday, 12 October 2023
+     Time: 1:48:32 AM  (Pakistan Standard Time, UTC+05:00)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\Admin\PycharmProjects\Harvest\tests\test_all_test_cases.py", line 54, in test_04
+    self.Testcase04()
+  File "C:\Users\Admin\PycharmProjects\Harvest\single_test_cases\verify_test_04.py", line 100, in Testcase04
+    self.click(SalesFlow.labels_5)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 458, in click
+    self.__element_click(element)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 2851, in __element_click
+    element.click()
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 344, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+Exception: Message: stale element reference: stale element not found
+  (Session info: chrome=117.0.5938.134); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF6CBDE7892+54818]
+	(No symbol) [0x00007FF6CBD56AC2]
+	(No symbol) [0x00007FF6CBC0DA3B]
+	(No symbol) [0x00007FF6CBC1246D]
+	(No symbol) [0x00007FF6CBC13F5F]
+	(No symbol) [0x00007FF6CBC14050]
+	(No symbol) [0x00007FF6CBC546B7]
+	(No symbol) [0x00007FF6CBC52B99]
+	(No symbol) [0x00007FF6CBC50968]
+	(No symbol) [0x00007FF6CBC4FA23]
+	(No symbol) [0x00007FF6CBC4571F]
+	(No symbol) [0x00007FF6CBC6EAAA]
+	(No symbol) [0x00007FF6CBC45036]
+	(No symbol) [0x00007FF6CBC6ECC0]
+	(No symbol) [0x00007FF6CBC875A2]
+	(No symbol) [0x00007FF6CBC6E883]
+	(No symbol) [0x00007FF6CBC43691]
+	(No symbol) [0x00007FF6CBC448D4]
+	GetHandleVerifier [0x00007FF6CC14B992+3610402]
+	GetHandleVerifier [0x00007FF6CC1A1860+3962352]
+	GetHandleVerifier [0x00007FF6CC199D4F+3930847]
+	GetHandleVerifier [0x00007FF6CBE83646+693206]
+	(No symbol) [0x00007FF6CBD61628]
+	(No symbol) [0x00007FF6CBD5D934]
+	(No symbol) [0x00007FF6CBD5DA62]
+	(No symbol) [0x00007FF6CBD4E113]
+	BaseThreadInitThunk [0x00007FFB4B3C257D+29]
+	RtlUserThreadStart [0x00007FFB4D36AA68+40]

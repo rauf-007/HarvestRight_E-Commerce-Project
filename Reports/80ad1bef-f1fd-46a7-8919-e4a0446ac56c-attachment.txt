@@ -1,0 +1,23 @@
+[32mINFO    [0m root:verify_test_03.py:15 ********** Verifying HarvestRight Website Opens *********
+[32mINFO    [0m root:verify_test_03.py:17 ********** HarvestRight Website Opens Successfully *********
+[32mINFO    [0m root:verify_test_03.py:18 ********** Verifying Login *********
+[32mINFO    [0m root:verify_test_03.py:20 ********** Login is Successful *********
+[32mINFO    [0m root:verify_test_03.py:21 ********** Verifying it opens the latest quotation *********
+[32mINFO    [0m root:verify_test_03.py:25 ********** Latest quotation opens Successfully *********
+[32mINFO    [0m root:verify_test_03.py:26 ********** Verifying Quotation is downloaded *********
+[32mINFO    [0m root:verify_test_03.py:32 ********** Quotation is downloaded Successfully *********
+[32mINFO    [0m root:verify_test_03.py:33 ********** Verifying Timesheet is downloaded *********
+[32mINFO    [0m root:verify_test_03.py:39 ********** Timesheet is downloaded Successfully *********
+[32mINFO    [0m root:verify_test_03.py:40 ********** Verifying it redirects to the purchase *********
+[32mINFO    [0m root:verify_test_03.py:43 ********** Successfully redirected to the purchase *********
+[32mINFO    [0m root:verify_test_03.py:45 ********** Verifying RFQ send by email *********
+[32mINFO    [0m root:verify_test_03.py:51 ********** Successfully send RFQ by email *********
+[32mINFO    [0m root:salesflow_functions.py:76 ********** It is in RFQ send state *******
+[32mINFO    [0m root:verify_test_03.py:54 ********** Verifying RFQ is printed *********
+[32mINFO    [0m root:verify_test_03.py:57 ********** RFQ printed Successfully *********
+[32mINFO    [0m root:verify_test_03.py:58 ********** Verifying Purchase order is confirmed *********
+[32mINFO    [0m root:verify_test_03.py:61 ********** Successfully confirmed purchase order *********
+[32mINFO    [0m root:verify_test_03.py:62 ********** Verifying Purchase order is send by email *********
+[32mINFO    [0m root:verify_test_03.py:67 ********** Successfully send purchase order by email *********
+[32mINFO    [0m root:salesflow_functions.py:89 ********** It is in purchase order state *******
+[32mINFO    [0m root:salesflow_functions.py:99 ********** Successfully created receipt *******

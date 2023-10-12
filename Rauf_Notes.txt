@@ -1,0 +1,21 @@
+pytest -k test_salemodule
+
+
+pytest -k test_salemodule -s
+
+
+pytest --alluredir="C:\Users\Admin\PycharmProjects\Harvest\Reports" 
+
+
+To generate allure report enter this in cmd:
+allure serve C:\Users\Admin\PycharmProjects\Harvest\Reports
+
+
+
+
+
+
+
+
+
+

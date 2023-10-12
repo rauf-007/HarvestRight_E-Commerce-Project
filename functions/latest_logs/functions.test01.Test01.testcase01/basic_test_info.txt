@@ -1,0 +1,31 @@
+test01.py::Test01::testcase01
+--------------------------------------------------------------------
+Last Page: https://silverdaletech-harvest-right-do-not-delete-automatio-9873451.dev.odoo.com/web/login#cids=1&action=menu
+ Duration: 7.18s
+  Browser: Chrome 117.0.5938.134
+   Driver: chromedriver 117.0.5938.92
+Timestamp: 1696881638  (Unix Timestamp)
+     Date: Tuesday, 10 October 2023
+     Time: 1:00:38 AM  (Pakistan Standard Time, UTC+05:00)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\Admin\PycharmProjects\Harvest\functions\test01.py", line 27, in testcase01
+    my_instance.login_page()
+  File "C:\Users\Admin\PycharmProjects\Harvest\functions\salesflow_functions.py", line 14, in login_page
+    self.send_keys(SalesFlow.email, "admin")
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 1067, in send_keys
+    self.__check_scope()
+  File "C:\Users\Admin\PycharmProjects\Harvest\venv\Lib\site-packages\seleniumbase\fixtures\base_case.py", line 10343, in __check_scope
+    raise OutOfScopeException(message)
+Exception: 
+ It looks like you are trying to call a SeleniumBase method
+ from outside the scope of your test class's `self` object,
+ which is initialized by calling BaseCase's setUp() method.
+ The `self` object is where all test variables are defined.
+ If you created a custom setUp() method (that overrided the
+ the default one), make sure to call super().setUp() in it.
+ When using page objects, be sure to pass the `self` object
+ from your test class into your page object methods so that
+ they can call BaseCase class methods with all the required
+ variables, which are initialized during the setUp() method
+ that runs automatically before all tests called by pytest.

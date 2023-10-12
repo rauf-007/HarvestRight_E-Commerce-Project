@@ -1,0 +1,107 @@
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from seleniumbase import BaseCase
+from selenium.webdriver import Keys
+import time
+from page_objects.salesflow import SalesFlow
+from functions.salesflow_functions import SalesFunctions
+from utilities.customLogger import LogGen
+
+
+class VerifyTest01(BaseCase):
+    logger = LogGen.loggen()
+
+    def Testcase01(self):
+        self.logger.info("********** Verifying HarvestRight Website Opens *********")
+        self.open(SalesFlow.harvestright_url)
+        self.logger.info("********** HarvestRight Website Opens Successfully *********")
+        self.logger.info("********** Verifying Login *********")
+        SalesFunctions.login_page(self)
+        self.logger.info("********** Login is Successful *********")
+        self.click(SalesFlow.sales_module, timeout=17)
+        self.logger.info("********** Verifying it redirects to the sales module ******")
+        time.sleep(1)
+        WebDriverWait(self.driver, 20).until(
+            EC.title_is("Odoo - Quotations"))
+        self.assert_title("Odoo - Quotations")
+        self.logger.info("********** Redirects to the sales module successfully ******")
+
+        time.sleep(2)
+        self.click(SalesFlow.new_quote)
+        self.logger.info("********** Veryfying it redirects to the new quotation *****")
+        time.sleep(1)
+        WebDriverWait(self.driver, 20).until(
+            EC.title_is("Odoo - New"))
+        self.assert_title("Odoo - New")
+        self.logger.info("********** Successfully redirects to the new quotation  *****")
+
+        # def test_verify_data_and_products_entered_in_quotation(self):
+        # self.test_verify_it_redirects_to_quotation()
+        self.click(SalesFlow.customer)
+        self.logger.info("********** Verifying data entered in new quotation *********")
+        self.send_keys(SalesFlow.customer, "**TEST CUSTOMER1**")
+        time.sleep(3)
+        self.send_keys(SalesFlow.customer, Keys.ENTER)
+        time.sleep(1)
+        self.send_keys(SalesFlow.exp_date, "12/29/2023")
+        time.sleep(1)
+        self.send_keys(SalesFlow.pay_terms, "21 Days")
+        self.send_keys(SalesFlow.pay_terms, Keys.ENTER)
+        self.logger.info("********** Data entered in new quotation successfully *****")
+        time.sleep(1)
+        self.click(SalesFlow.add_product)
+        self.logger.info("********** Verifying all products added in the new quotation *******")
+        self.logger.info("********** Verifying TEST PRODUCT 1 added in the new quotation ******")
+        self.send_keys(SalesFlow.test_product1, "**TEST PRODUCT 1**")
+        time.sleep(2)
+        self.send_keys(SalesFlow.test_product1, Keys.ENTER)
+        time.sleep(1)
+        self.click(SalesFlow.tp1_quantity)
+        self.send_keys(SalesFlow.tp1_quantity, "1")
+        time.sleep(1)
+        self.click(SalesFlow.tp1_taxes)
+        self.send_keys(SalesFlow.tp1_taxes, Keys.ENTER)
+        time.sleep(1)
+        self.logger.info("********** TEST PRODUCT 1 added in the new quotation Successfully ******")
+        self.logger.info("********** Verifying TEST PRODUCT 2 added in the new quotation ******")
+        self.wait_for_element_clickable(SalesFlow.add_product, timeout=10)
+        self.click(SalesFlow.add_product)
+        time.sleep(1)
+        # self.wait_for_element_clickable(SalesFlow.test_product2, timeout=10)
+        self.click(SalesFlow.test_product2, timeout=21)
+        time.sleep(2)
+        self.send_keys(SalesFlow.test_product2, "**TEST PRODUCT 2**")
+        time.sleep(2)
+        self.send_keys(SalesFlow.test_product2, Keys.ENTER)
+        time.sleep(1)
+        self.click(SalesFlow.tp2_quantity)
+        time.sleep(1)
+        self.send_keys(SalesFlow.tp2_quantity, "2")
+        time.sleep(2)
+        self.logger.info("********** TEST PRODUCT 2 added in the new quotation Successfully ******")
+        self.logger.info("********** Verifying TEST PRODUCT 3 added in the new quotation ******")
+        self.click(SalesFlow.blank_space)
+        self.type("body", " ")
+        time.sleep(1)
+        self.wait_for_element_clickable(SalesFlow.add_product, timeout=12)
+        self.click(SalesFlow.add_product)
+        time.sleep(1)
+        # self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        # self.wait_for_element_clickable(SalesFlow.test_product3, timeout=10)
+        self.click(SalesFlow.test_product3, timeout=21)
+        self.send_keys(SalesFlow.test_product3, "**TEST PRODUCT 3**")
+        time.sleep(2)
+        self.send_keys(SalesFlow.test_product3, Keys.ENTER)
+        time.sleep(1)
+        self.click(SalesFlow.tp3_quantity)
+        time.sleep(1)
+        self.send_keys(SalesFlow.tp3_quantity, "3")
+        self.logger.info("********** TEST PRODUCT 3 added in the new quotation Successfully ******")
+        self.logger.info("********** All Products added in the new quotation Successfully *******")
+        time.sleep(2)
+        self.logger.info("********** Verifying all data saved in the new quotation ******")
+        self.click(SalesFlow.save_manually)
+        self.logger.info("********** Data successfully saved in the new quotation ******")
+        time.sleep(5)
+
+
