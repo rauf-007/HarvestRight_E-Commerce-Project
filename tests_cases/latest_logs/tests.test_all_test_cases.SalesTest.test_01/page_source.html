@@ -1,0 +1,3740 @@
+<base href="https://staging.zoobooksystems.com">
+<html lang="en" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Clients - Zoobook</title>
+    <link href="/resources/bundles/styles/shared-master-layout.min.css?v=638067877812006371" rel="stylesheet">
+     <script src="/resources/bundles/scripts/shared-master-layout.min.js?v=638339942657999618"></script>
+     <script src="/resources/vendors/html2canvas/html2canvas.min.js?v=638011729612398591"></script>
+    <script src="/signalr/hubs"></script>
+     <script src="/resources/bundles/scripts/iwc-signalr-bundle.min.js?v=638164610038550837"></script>
+    
+     <script src="/resources/vendors/zoobook/js/modules/ReportModule.min.js?v=638318809641928716"></script>
+     <script src="/resources/vendors/zoobook/js/modules/ViewClientsModule.min.js?v=638352206757202927"></script>
+
+    <script>
+        $(function()
+        {
+            var data = [{"hasPrimaryDiagnoses":false,"isSubstanceAbuseClient":true,"clientId":288612,"client":"Henzi , Hareem","statusId":3,"status":"Pending","admissionDate":null,"birthdate":"2009-07-16T00:00:00","age":14,"gender":"1","address":", ,","county":null,"dateOfFirstCall":null,"dateOfMostRecentCall":null,"primaryCounselor":null,"primaryPhone":null,"cellPhone":null,"levelOfCare":null,"levelOfCareAdditionalData":null,"njsamsId":null,"clientIdentification":null,"primaryPayerSource":null,"secondaryPayerSource":null,"primaryReferralSource":null,"secondaryReferralSource":null,"dischargeDate":null,"dischargeReason":null,"companyBranch":"All","generalInfoUrl":"/Clients/288612","isNonTreatment":false,"primaryEmail":null,"secondaryEmail":null,"tracks":null,"pendingType":null,"denialReason":null,"editControl":"<a class='link-edit' data-toggle='tooltip' data-placement='top' href='/Clients/288612' title='Edit'> <i class='pe-7s-note'></i></a>","deleteControl":"<a class='link-delete' href='#' data-client-id='288612' data-toggle='tooltip' data-placement='top' title='Delete'><i class='pe-7s-trash'></i></a>","isIdrcReferralSource":false,"companyId":20377,"clientNotesToFileUrl":"/Clients/ProgressNotes/NoteToFiles/288612","clientNotesToFileControl":"<a class='link-edit' target='_blank' data-toggle='tooltip' data-placement='top' href='/Clients/ProgressNotes/NoteToFiles/288612' title='Edit'> <i class='pe-7s-note'></i></a>","isMinor":true,"dischargeType":""},{"hasPrimaryDiagnoses":false,"isSubstanceAbuseClient":true,"clientId":288625,"client":"Jamal , Haroon","statusId":3,"status":"Pending","admissionDate":null,"birthdate":"1998-11-28T00:00:00","age":25,"gender":"1","address":", ,","county":null,"dateOfFirstCall":null,"dateOfMostRecentCall":null,"primaryCounselor":null,"primaryPhone":null,"cellPhone":null,"levelOfCare":null,"levelOfCareAdditionalData":null,"njsamsId":null,"clientIdentification":null,"primaryPayerSource":null,"secondaryPayerSource":null,"primaryReferralSource":null,"secondaryReferralSource":null,"dischargeDate":null,"dischargeReason":null,"companyBranch":"All","generalInfoUrl":"/Clients/288625","isNonTreatment":false,"primaryEmail":null,"secondaryEmail":null,"tracks":null,"pendingType":null,"denialReason":null,"editControl":"<a class='link-edit' data-toggle='tooltip' data-placement='top' href='/Clients/288625' title='Edit'> <i class='pe-7s-note'></i></a>","deleteControl":"<a class='link-delete' href='#' data-client-id='288625' data-toggle='tooltip' data-placement='top' title='Delete'><i class='pe-7s-trash'></i></a>","isIdrcReferralSource":false,"companyId":20377,"clientNotesToFileUrl":"/Clients/ProgressNotes/NoteToFiles/288625","clientNotesToFileControl":"<a class='link-edit' target='_blank' data-toggle='tooltip' data-placement='top' href='/Clients/ProgressNotes/NoteToFiles/288625' title='Edit'> <i class='pe-7s-note'></i></a>","isMinor":false,"dischargeType":""},{"hasPrimaryDiagnoses":false,"isSubstanceAbuseClient":true,"clientId":288626,"client":"Jamal , Haroon","statusId":3,"status":"Pending","admissionDate":null,"birthdate":"1998-11-28T00:00:00","age":25,"gender":"1","address":", ,","county":null,"dateOfFirstCall":null,"dateOfMostRecentCall":null,"primaryCounselor":null,"primaryPhone":null,"cellPhone":null,"levelOfCare":null,"levelOfCareAdditionalData":null,"njsamsId":null,"clientIdentification":null,"primaryPayerSource":null,"secondaryPayerSource":null,"primaryReferralSource":null,"secondaryReferralSource":null,"dischargeDate":null,"dischargeReason":null,"companyBranch":"All","generalInfoUrl":"/Clients/288626","isNonTreatment":false,"primaryEmail":null,"secondaryEmail":null,"tracks":null,"pendingType":null,"denialReason":null,"editControl":"<a class='link-edit' data-toggle='tooltip' data-placement='top' href='/Clients/288626' title='Edit'> <i class='pe-7s-note'></i></a>","deleteControl":"<a class='link-delete' href='#' data-client-id='288626' data-toggle='tooltip' data-placement='top' title='Delete'><i class='pe-7s-trash'></i></a>","isIdrcReferralSource":false,"companyId":20377,"clientNotesToFileUrl":"/Clients/ProgressNotes/NoteToFiles/288626","clientNotesToFileControl":"<a class='link-edit' target='_blank' data-toggle='tooltip' data-placement='top' href='/Clients/ProgressNotes/NoteToFiles/288626' title='Edit'> <i class='pe-7s-note'></i></a>","isMinor":false,"dischargeType":""}];
+            var totalItems = 3;
+            var currentLoggedInUserId = "32b8b448-dc6c-4b80-b5e9-4d23a54b1587";
+
+            Zoobook.Modules.ViewClientsModule().init(data, totalItems, currentLoggedInUserId);
+        });
+    </script>
+
+    <style type="text/css">
+        .ui-multiselect-menu {
+            z-index: 0 !important;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    
+
+
+<header>
+    <a href="#main-container" class="sr-only sr-only-focusable">Skip to main</a>
+
+    
+
+    <div id="user-nav">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 cont">
+                    <a class="has-mascot" href="/">
+                        <div class="logo-cont">
+                                <strong class="deployment-environment-stamp">
+                                        Staging Version
+                                </strong>
+                            <img src="/resources/images/zoobook-logos/default/zoobook-logo.png" alt="Zoobook Logo" class="logo">
+                        </div>
+                        <img src="/resources/images/mascots/default/female/logo-mascot-b.png" class="mascot img-responsive" alt="Zoobook Mascot">
+                    </a>
+
+                    <ul class="list-inline">
+
+                        <li id="zoobook-companies-selector">
+</li>
+
+
+                            <li>
+                                <div class="clientGlobalSearch-main">
+                                    <div class="clientGlobalSearch-cont">
+                                        <select id="clientGlobalSearch" class="form-control select2-hidden-accessible" tabindex="0" aria-hidden="false"></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-clientGlobalSearch-container"><span class="select2-selection__rendered" id="select2-clientGlobalSearch-container"><span class="select2-selection__placeholder"><i class="glyphicon glyphicon-search"></i> Search Client</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                    <div class="clientGlobalSearchStatusFilter-cont">
+                                        <select id="clientGlobalSearchStatusFilter" class="form-control select2-hidden-accessible" tabindex="0" aria-hidden="false">
+                                            <option></option>
+                                                <option value="1">Active</option>
+                                                <option value="2">Discharged</option>
+                                                <option value="3">Pending</option>
+                                                <option value="4">Trash</option>
+                                                <option value="5">Administrative Discharged</option>
+                                                <option value="6">ERefferred New</option>
+                                                <option value="7">Denied</option>
+                                                <option value="8">Wait List</option>
+                                                <option value="9">Legacy</option>
+                                                <option value="10">Unrecognized</option>
+                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-clientGlobalSearchStatusFilter-container"><span class="select2-selection__rendered" id="select2-clientGlobalSearchStatusFilter-container"><span class="select2-selection__placeholder"><i class="glyphicon glyphicon-filter"></i> Filter Status</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        <li>
+                            <button type="button" id="screenshot-button" class="btn btn-primary" aria-label="Screenshot" title="Screenshot">
+                                <span class="glyphicon glyphicon-screenshot"></span>
+                                <span class="text hidden-xs hidden-sm">&nbsp; Screenshot</span>
+                            </button>
+                        </li>
+
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle notifications-dropdown" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-exclamation-sign visible-xs-inline-block visible-sm-inline-block" title="Notifications"></span>
+                                    <span class="text hidden-xs hidden-sm">Notifications </span>
+                                    <span id="notifications-unread-count" class="label label-danger">0</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul id="notifications-dropdown" class="notifications dropdown-menu dropdown-menu-right" role="menu">
+                                    
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - Zoobook</title>
+    <link href="/resources/bundles/styles/shared-master-layout.min.css?v=638067877812006371" rel="stylesheet">
+    
+
+
+
+
+    
+
+<li class="all">
+    <a href="/Notification">See all notifications</a>
+</li>
+
+
+
+    
+
+
+
+                                </ul>
+
+                            </li>
+                            <li id="dosespot-notifications-selector" class="hidden">
+                                <a href="/DoseSpot/Notifications">
+                                    <span class="glyphicon glyphicon-exclamation-sign visible-xs-inline-block visible-sm-inline-block" title="DoseSpot Notifications"></span>
+                                    <span class="text hidden-xs hidden-sm">DoseSpot Notifications </span>
+                                    <span class="label label-danger dosespot-notifications-count">0</span>
+                                </a>
+                            </li>
+
+                                                    <li id="liSettings" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-cog visible-xs-inline-block visible-sm-inline-block" title="Settings"></span>
+                                    <span class="text hidden-xs hidden-sm">Settings</span>
+                                    <span class="caret"></span>
+                                </a>
+
+
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <li class="dropdown-header">General</li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/AmendmentSettings.aspx" target="_self">Amendment Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/BedManagementSettings" target="_self">Bed Management Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/BillingCodeSettings.aspx" target="_self">Billing Code Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/BillingSettings" target="_self">Billing Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/BusinessRulesManagement" target="_self">Business Rules Management</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Cds" target="_self">Clinical Decision Support Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/CompanyInfo" target="_self">Companies</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/DataExport" target="_self">Data Export Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/DropDownManager.aspx" target="_self">DropDown Manager</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/EHIExport" target="_self">EHI Export</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/EmailTemplates.aspx" target="_self">Email Templates</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/EnhancementPackages.aspx" target="_self">Enhancement Packages</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/FormBuilder" target="_self">Form Builder</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/GroupSessionSchedules" target="_self">Group Session Schedules</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/JobDescriptionSettings.aspx" target="_self">Job Descriptions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/NotificationsManager" target="_self">Notifications Manager</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/PrescriberList" target="_self">Prescriber List</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/RealTimeNotifications.aspx" target="_self">Real-time Notifications</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/Referral.aspx" target="_self">Referrals/Payers</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/UrineScreenCodeManagement" target="_self">Urine Screen Code Management</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/General/VacationAndLeavesSettings" target="_self">Vacation and Leaves Settings</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                <li class="dropdown-header">Logs</li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/AccuLabFailedTransactions.aspx" target="_self">Accu Lab Failed Transactions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Logs/EmailLogs" target="_self">Email Logs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Logs/FaxMessages" target="_self">Fax Messages</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Settings/MilleniumLabFailedTransactions.aspx" target="_self">Millenium Lab Failed Transactions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Logs/SmsSendLogs" target="_self">SMS Send Logs</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                <li class="dropdown-header">Security</li>
+                                                    <li>
+                                                        <a href="/Settings/Security/ApiAccessManager" target="_self">API Access Manager</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Security/ClientFileRestrictions" target="_self">Client File Restrictions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/CompanyRolesManagement" target="_self">Company Roles Management</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/GlobalSettings" target="_self">Company Wide Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Settings/Security/EmployeeFileRestrictions" target="_self">Employee File Restrictions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/HashCodeGenerator" target="_self">Hash Code Generator</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/ModuleAccessManagement" target="_self">Module Management</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/ProvisionalAccountManagement" target="_self">Provisional Account Management</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Security/PublicModulesAccessCodes" target="_self">Public Modules Access Codes</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Security/SiteActivityTracker.aspx" target="_self">Site Activity Tracker</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/contentpages/Security/UserManagement.aspx" target="_self">User Management</a>
+                                                    </li>
+                                    </ul>
+                            </li>
+                        <li class="box">
+                            <a href="#">
+                                    <img src="/App_Themes/frontside/images/employees/no-profile-image.jpg" alt="Employee Photo" class="profile-photo-thumbnail img-circle">
+                                <span class="text hidden-xs hidden-sm">
+                                    Welcome <b>Automation Assessment  Admin</b>
+                                </span>
+                                <span class="caret"></span>
+                            </a>
+
+                            <div class="speech-bubble">
+                                <ul role="menu" aria-labelledby="drpdwn-user-account">
+                                        <li>
+                                            <strong>
+                                                <a href="/Employees/45613">AAAdmin</a>
+                                                <a href="#" data-toggle="modal" data-target="#profile-modal"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                                            </strong>
+
+                                        </li>
+
+                                    <li>
+                                        <em>AAADmin@zb.com</em>
+                                    </li>
+
+                                    <li>
+                                        <button type="button" class="btn btn-warning mfa-setup-button">
+                                            <i class="fa fa-mobile-phone"></i>&nbsp; Setup Multi-Factor Authentication
+                                        </button>
+                                    </li>
+
+                                        <li>
+                                            <style>
+    .alert-label 
+    {
+        display: block;
+    }
+
+    .alert-label span:not(.label) 
+    {
+        vertical-align: sub;
+    }
+    .alertList {
+        z-index: 1055;
+    }
+</style>
+
+<div id="ModalUserAlerts"></div>
+
+    <label class="alert-label" for="alertList">
+        <span>Alert</span>
+        <button type="button" class="show-alert btn btn-link pull-right">
+            <span class="label label-success">Show</span>
+        </button>
+
+        <select id="alertList" class="form-control select2-hidden-accessible" tabindex="0" aria-hidden="false">
+            <option value="0" disabled="" selected="">- Select Alert -</option>
+                <option value="/UnattendedClientsAlert/Alert">Unattended Clients</option>
+                <option value="/UrineAnalysisAlert/NoResultAlert">Urine Analysis</option>
+                <option value="/UrineAnalysisAlert/NoReviewAlert">Urine Analysis Review</option>
+                <option value="/NoIndividualSessionAlert/Alert">No Individual Session</option>
+                <option value="/PrivatePayClientsWithUnpaidBalance/Alert">Private Pay Clients With Unpaid Balance</option>
+                <option value="/MentalHealthClinicalComplianceAlert/Alert">Mental Health Clinical Compliance</option>
+                <option value="/SubstanceAbuseClinicalComplianceAlert/Alert">Substance Abuse Clinical Compliance</option>
+                <option value="/Help/ReleaseNotes/ReleaseNotesNotification?isForceShow=true">Release Notes</option>
+                <option value="/NewYorkTreatmentPlansDueAlert/Alert">New York Treatment Plans Due</option>
+                <option value="/PrivateInsuranceBalancesDue/Alert">Private Insurance Balances Due</option>
+                <option value="/Reports/Clients/PatientHealthQuestionnaireReport/Alert">Patient Health Questionnaire Reminder</option>
+                <option value="/ClientsMissedServicesAlert/Alert">Clients Missed Services</option>
+        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-alertList-container"><span class="select2-selection__rendered" id="select2-alertList-container" title="- Select Alert -">- Select Alert -</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+    </label>
+
+<script type="text/javascript">
+
+    var formModule = Zoobook.Modules.FormModule();
+
+    let alertList = $('#alertList');
+    if ($(alertList).length) {
+      var temp = alertList.select2
+            ({
+                width: '100%',
+                selectOnClose: true
+            });
+        temp.data('select2').$dropdown.addClass('alertList');
+    }
+
+    $('.show-alert').on('click', function () 
+    {
+        var alertUrl = alertList.select2('data')[0].id;
+
+        if (alertUrl != 0) 
+        {
+            showUserAlert(alertUrl);
+        } else 
+        {
+            formModule.toastError('Show alert', 'Please select an alert to show');
+        }
+    });
+
+    function showUserAlert(alertUrl) 
+    {
+        $('#ModalUserAlerts').load(alertUrl);
+    }
+
+</script>
+
+
+                                        </li>
+
+                                    <li>
+                                        <a title="" href="/Logout" class="btn btn-raised btn-danger btn-block">
+                                            <span class="pe-7s-power" aria-hidden="true"></span>
+                                            <strong>LOGOUT</strong>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="carousel-cont clearfix">
+            <div id="carousel-navbar" class="carousel-navbar" data-jcarousel="true">
+                    <ul class="carousel-list" role="menu" style="left: 0px; top: 0px;">
+                                <li class="carousel-item text-center" role="presentation" data-id="64" style="display: list-item;">
+                                    <a href="/" target="_self" role="menuitem">
+                                        <i class="hdr-dashboard" aria-hidden="true"></i>
+                                        <span class="menu-item">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="5" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-call-center" aria-hidden="true"></i>
+                                        <span class="menu-item">Call Center</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="92">
+                    <a href="/CallCenter/CallLogs" target="_self">View Call Logs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="93">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.AddCallLog()" target="_self">Add Call Log</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2943">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.AddPhiDisclosureToFile()" target="_self">PHI Disclosure Log</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2871">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.AddClientNotesToFile()" target="_self">Client Notes To File</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="6" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-clients" aria-hidden="true"></i>
+                                        <span class="menu-item">Clients</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="7">
+                    <a href="/Clients/ViewClients" target="_self">View Clients</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="8">
+                    <a href="/Clients/Add" target="_self">Add Client</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="63">
+                    <a href="/Clients/ProgressNotes/ProgressNotesList" target="_self">Progress Notes</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="517">
+                    <a href="#" target="_self">Data Export</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="518">
+                    <a href="/Clients/DataExport/Hl7CcdaR21" target="_self">HL7 C-CDA R2.1</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="539">
+                    <a href="/Clients/DataExport/Hl7QrdaCategory1" target="_self">HL7 QRDA Category I</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="541">
+                    <a href="/Clients/DataExport/Hl7QrdaCategory3" target="_self">HL7 QRDA Category III</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="532">
+                    <a href="#" target="_self">Data Import</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="533">
+                    <a href="/Clients/DataImport/Hl7Qrda" target="_self">HL7 QRDA</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="607">
+                    <a href="#" target="_self">Communications</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="608">
+                    <a href="/Clients/Communications/Announcement" target="_self">Announcements</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="609">
+                    <a href="/Clients/Communications/Reminder" target="_self">Reminders</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="614">
+                    <a href="/Clients/EducationalResources" target="_self">Educational Resources</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="734">
+                    <a href="#" target="_self">EMR Direct</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="735">
+                    <a href="/Clients/EmrDirect/ContinuityCareDocument" target="_self">Consolidated Clinical Document Architecture (CCDA)</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="736">
+                    <a href="/Clients/EmrDirect/PhiMailLogs" target="_self">phiMail Logs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="737">
+                    <a href="/Clients/EmrDirect/DirectMessaging" target="_self">Direct Messaging</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="738">
+                    <a href="/Clients/EmrDirect/CcdaValidator" target="_self">C-CDA Validator</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="2971">
+                    <a href="#" target="_self">E-Prescribe</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2972">
+                    <a href="#" target="_self">DoseSpot</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2973">
+                    <a href="/DoseSpot/Notifications" target="_self">Notifications</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="2975">
+                    <a href="#" target="_self">Health Information Networks</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2976">
+                    <a href="#" target="_self">NJHIN</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2977">
+                    <a href="/Clients/HealthInformationNetworks/Njhin/AdtNotificationLogs" target="_self">ADT Notification Logs</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="9" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-employees" aria-hidden="true"></i>
+                                        <span class="menu-item">Employees</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="10">
+                    <a href="/Employees/ViewEmployees" target="_self">View Employees</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="11">
+                    <a href="/Employees" target="_self">Add Employee</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="549">
+                    <a href="/Employees/Applicants" target="_self">View Applicants</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="12">
+                    <a href="/contentpages/Employee/WorkShift.aspx" target="_self">Work Shifts</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="123">
+                    <a href="/contentpages/Appointment/Default.aspx#todo-container" target="_self">To Do</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="610">
+                    <a href="/Employees/EmployeeContactInformation" target="_self">Employee Contact Information</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="743">
+                    <a href="#" target="_self">Messaging</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="744">
+                    <a href="/Employees/Messaging/SecureEmail" target="_self">Secure Messaging</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="745">
+                    <a href="/Employees/Messaging/SecureEmail/Compose" target="_self">Compose</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="746">
+                    <a href="/Employees/Messaging/SecureEmail/Sent" target="_self">Sent Email</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2952">
+                    <a href="/Settings/Logs/SmsSendLogs" target="_self">Sent SMS</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="14" style="display: list-item;">
+                                    <a href="/Appointments" target="_self" role="menuitem">
+                                        <i class="hdr-appointments" aria-hidden="true"></i>
+                                        <span class="menu-item">Appointments</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="4130" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-urine" aria-hidden="true"></i>
+                                        <span class="menu-item">Lab Results</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="4131">
+                    <a href="#" target="_self">Legacy</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4132">
+                    <a href="#" target="_self">Interfaces</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="4133">
+                    <a href="#" target="_self">Aegis Sciences Corporation</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="4134">
+                    <a href="/Settings/AegisLab" target="_self">Settings</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4135">
+                    <a href="/AegisLabOrders" target="_self">Lab Orders</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="94" style="display: list-item;">
+                                    <a href="/contentpages/GroupCurriculum/Default.aspx" target="_self" role="menuitem">
+                                        <i class="hdr-curriculum" aria-hidden="true"></i>
+                                        <span class="menu-item">Group Curriculum</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="17" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-billing" aria-hidden="true"></i>
+                                        <span class="menu-item">Billing</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="620">
+                    <a href="/contentpages/Billing/AppointmentsBillingLog.aspx" target="_self">Billing Logs</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="622">
+                    <a href="/Billing/BillingLogs/AppointmentsBillingLog" target="_self">Appointment Billing Logs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="623">
+                    <a href="/Billing/BillingLogs/UrineAnalysisBillingLog" target="_self">Urine Analysis Billing Logs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="624">
+                    <a href="/contentpages/Billing/CcaBillingLog.aspx" target="_self">CCA Billing Logs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="625">
+                    <a href="/contentpages/Billing/CrisisInterventionBillingLog.aspx" target="_self">Crisis Intervention Billing Logs</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="621">
+                    <a href="/" target="_self">Billing Reports</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="626">
+                    <a href="/contentpages/Billing/RevenueCycleReport.aspx" target="_self">Revenue Cycle</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="627">
+                    <a href="/contentpages/Billing/UnbilledTransactionsReport.aspx" target="_self"> Crisis Intervention Billing</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="649">
+                    <a href="/Billing/SuperBillReport" target="_self">Super Bill Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="1821">
+                    <a href="/Billing/BillingReports/PreBillingReport" target="_self">Pre-Billing Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4069">
+                    <a href="/Billing/BillingReports/GrantBillingReport" target="_self">Grant Billing Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4077">
+                    <a href="/Billing/BillingReports/CapitolCareSouthReport" target="_self">Capitol Care South Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="650">
+                    <a href="#" target="_self">Claims</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="763">
+                    <a href="#" target="_self">Medicaid</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="764">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/ProfessionalForm" target="_self">New Jersey</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2948">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/AccountSettings" target="_self">Account Settings</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="765">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/ProfessionalForm" target="_self">837 Professional Form</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="768">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/BatchTransmit" target="_self">Batch Transmit</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="766">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/ClaimRecords" target="_self">Claim Records</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="767">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/RemittanceAdviceReportTxt" target="_self">Remittance Advice Report - TXT</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2964">
+                    <a href="/Billing/Claims/Medicaid/NewJersey/RemittanceAdviceReport835" target="_self">Remittance Advice Report - 835</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="2853">
+                    <a href="#" target="_self">Clearing House</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2854">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/AccountSettings" target="_self">Claim.MD</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2855">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/AccountSettings" target="_self">Account Settings</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2856">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/ProfessionalForm" target="_self">837 Professional Form</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4081">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/InstitutionalForm" target="_self">837 Institutional Form</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2857">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/BatchTransmit" target="_self">Batch Transmit</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2858">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/ClaimRecords" target="_self">Claim Records</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2859">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/RemittanceAdviceReportPdf" target="_self">Remittance Advice Report - PDF</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2860">
+                    <a href="/Billing/Claims/ClearingHouse/ClaimMD/RemittanceAdviceReport835" target="_self">Remittance Advice Report - 835</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="2918">
+                    <a href="/Billing/Claims/ClearingHouse/TriZetto/AccountSettings" target="_self">TriZetto</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="2919">
+                    <a href="/Billing/Claims/ClearingHouse/TriZetto/AccountSettings" target="_self">Account Settings</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2920">
+                    <a href="/Billing/Claims/ClearingHouse/TriZetto/ProfessionalForm" target="_self">837 Professional Form</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2921">
+                    <a href="/Billing/Claims/ClearingHouse/TriZetto/BatchTransmit" target="_self">Batch Processing</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2922">
+                    <a href="/Billing/Claims/ClearingHouse/TriZetto/ClaimRecords" target="_self">Claim Records</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="18" style="display: list-item;">
+                                    <a href="/contentpages/Payroll/Payroll.aspx" target="_self" role="menuitem">
+                                        <i class="hdr-payroll" aria-hidden="true"></i>
+                                        <span class="menu-item">Payroll</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="4098" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-invoicing" aria-hidden="true"></i>
+                                        <span class="menu-item">Client Invoicing / Payment</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="4099">
+                    <a href="/ClientInvoicingPayment/Main/ClientInvoicingPayment" target="_self">Main</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="4100">
+                    <a href="/ClientInvoicingPayment/Main/Invoice/ClientInvoice" target="_self">Generate Invoice</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4101">
+                    <a href="/ClientInvoicingPayment/Main/Payment/ClientPayment" target="_self">Collect Payment</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="4102">
+                    <a href="/ClientInvoicingPayment/PaymentRecords/PaymentRecords" target="_self">Payment Records</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="19" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-quality" aria-hidden="true"></i>
+                                        <span class="menu-item">Quality</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="369">
+                    <a href="/contentpages/Quality/MedicationReconciliationEvaluation.aspx" target="_self">Medication Reconciliation Evaluations</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="414">
+                    <a href="#" target="_self">Quality Improvement Summary</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="416">
+                    <a href="/Quality/QualityImprovementPlan" target="_self">Plan</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="415">
+                    <a href="/Quality/ActualQualityImprovement" target="_self">Results</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="535">
+                    <a href="/Quality/ClinicalQualityMeasures" target="_self">Clinical Quality Measures</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="20" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-reports" aria-hidden="true"></i>
+                                        <span class="menu-item">Reports</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="124">
+                    <a href="/contentpages/Reports/EmployeesRoster.aspx" target="_self">Employees</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="127">
+                    <a href="/contentpages/Reports/EmployeesRoster.aspx" target="_self">Employees Roster</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="98">
+                    <a href="/contentpages/Reports/CounselorsCaseLoad.aspx" target="_self">Counselors Case Load</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="154">
+                    <a href="/contentpages/Reports/CounselorAppointmentsList.aspx" target="_self">Counselor Appointments List</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="129">
+                    <a href="/contentpages/Reports/ScheduleReport.aspx" target="_self">Schedule Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="130">
+                    <a href="/contentpages/Reports/ExpiredDocumentsReport.aspx" target="_self">Expired Documents Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="131">
+                    <a href="/contentpages/Reports/EmployeeBirthdaysReport.aspx" target="_self">Birthdays Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="615">
+                    <a href="/Reports/Employees/LastSystemAccessReport" target="_self">Last System Access Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4105">
+                    <a href="/Reports/Employees/EmergencyContactsReport" target="_self">Emergency Contacts Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="125">
+                    <a href="/contentpages/Reports/ClientsRoster.aspx" target="_self">Clients</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="132">
+                    <a href="/Reports/Clients/ClientsRosterReport" target="_self">Clients Roster Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="710">
+                    <a href="/Reports/Clients/AppointmentConflictsReport" target="_self">Appointment Conflicts Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="21">
+                    <a href="/Reports/Clients/AttendanceReport" target="_self">Attendance Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="65">
+                    <a href="/contentpages/Reports/AttendanceMasterReport.aspx?ReportTypeId=2" target="_self">Attendance Report Group By Counselor</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="62">
+                    <a href="/contentpages/Reports/AttendanceMasterReport.aspx?ReportTypeId=1" target="_self">Attendance Sheet</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="88">
+                    <a href="/contentpages/Reports/NoShowClientsReport.aspx" target="_self">No-Show Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="152">
+                    <a href="/contentpages/Reports/NoShowTwoWeeksClientsReport.aspx" target="_self">No-Show Two Weeks Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="89">
+                    <a href="/contentpages/Reports/PositiveUrineAnalysisReport.aspx" target="_self">Positive Urine Analysis Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="133">
+                    <a href="/contentpages/Reports/ClientBirthdaysReport.aspx" target="_self">Birthdays Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="135">
+                    <a href="/Reports/Clients/ClientAttendanceReport" target="_self">Attendance Report By Client</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="136">
+                    <a href="/contentpages/Reports/WaitingTimeAndContinuationData.aspx" target="_self">Waiting Time and Continuation Data</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="155">
+                    <a href="/contentpages/Reports/UnassignedClientsReport.aspx" target="_self">Unassigned Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="158">
+                    <a href="/contentpages/Reports/MonthlyProgressReport.aspx" target="_self">Monthly Progress Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="159">
+                    <a href="/contentpages/Reports/NoEngagementInTreatmentLettersReport.aspx" target="_self">No Engagement In Treatment Letters Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="160">
+                    <a href="/contentpages/Reports/CertificateOfCompletionReport.aspx" target="_self">Certificate of Completion Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="161">
+                    <a href="/contentpages/Reports/LevelOfCareReport.aspx" target="_self">Level Of Care Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="162">
+                    <a href="/Reports/Clients/PrivatePayClientsPaymentRoster" target="_self">Payment Roster For Private Pay Clients</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="163">
+                    <a href="/contentpages/Reports/ExpiredAuthorizationsReport.aspx" target="_self">Expired Authorizations Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="376">
+                    <a href="/contentpages/Reports/SubstanceAbuseInitialEvaluationReport.aspx" target="_self">Substance Abuse Initial Evaluation Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="375">
+                    <a href="/Reports/DiscrepancyLevelOfCare" target="_self">Discrepancy Level of Care in NJSAMS vs. Zoobook</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="374">
+                    <a href="/Reports/DiscrepancyDischarges" target="_self">Discrepancy Discharges in NJSAMS vs. Zoobook</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="379">
+                    <a href="/contentpages/Reports/CcaReport.aspx" target="_self">Continue of Care Assessment Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="380">
+                    <a href="/contentpages/Reports/PrivatePayReport.aspx" target="_self">Private Pay Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="417">
+                    <a href="/Reports/Clients/MedicationReport" target="_self">Medical Reconciliation Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="429">
+                    <a href="/Reports/Clients/VivitrolReport" target="_self">Vivitrol Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="436">
+                    <a href="/Reports/Clients/ContinueOfCareReport" target="_self">Continue Of Care Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="543">
+                    <a href="/Reports/Clients/MissingUrineTestResultsReport" target="_self">Missing Urine Test Results Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="606">
+                    <a href="/Reports/Clients/GoodAttendanceTrackerReport" target="_self">Good Attendance Tracker Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="612">
+                    <a href="/Reports/Clients/PayerSourceClientsReport" target="_self">Payer Source Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="613">
+                    <a href="/Reports/Clients/UnattendedClientsReport" target="_self">Unattended Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="645">
+                    <a href="/Reports/Clients/SessionHoursReport" target="_self">Session Hours Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="646">
+                    <a href="/Reports/Clients/NoUrineAnalysisReviewReport" target="_self">No Urine Analysis Review Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="647">
+                    <a href="/Reports/Clients/NoUrineResultsReport" target="_self">No Urine Results For The Last 7 Days Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="653">
+                    <a href="/Reports/Clients/DiagnosesReport" target="_self">Diagnoses Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="655">
+                    <a href="/Reports/Clients/ConsolidatedDiagnosesReport" target="_self">Consolidated Diagnoses Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="672">
+                    <a href="/Reports/Clients/UrineResultsStats" target="_self">Urine Results Stats</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="674">
+                    <a href="/Reports/Clients/ClientAttendanceDetails" target="_self">Client Attendance Details</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="712">
+                    <a href="/Reports/Clients/DischargeClientsReport" target="_self">Discharge Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2967">
+                    <a href="/Reports/Clients/CulturalCompetencyDataDumpReport" target="_self">Cultural Competency Data Dump Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="3983">
+                    <a href="/Reports/Clients/AdmissionReport" target="_self">Admission Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="3997">
+                    <a href="/Reports/Clients/MonthlyAttendanceReport" target="_self">Monthly Attendance Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4078">
+                    <a href="/Reports/Clients/SessionMinutesReport" target="_self">Daily Session Hours</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4089">
+                    <a href="/Reports/Clients/PatientHealthQuestionnaireReport" target="_self">Patient Health Questionnaire Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4094">
+                    <a href="/Reports/Clients/SingleFormCompletionAuditReport" target="_self">Single Form Completion Audit Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4104">
+                    <a href="/Reports/Clients/ClientUrineTestResultsReport" target="_self">Client Urine Test Results Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4108">
+                    <a href="/Reports/Clients/MentalHealthAssessmentsReport" target="_self">Mental Health Assessments Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4111">
+                    <a href="/Reports/Clients/ClientsDeniedReport" target="_self">Client Denied Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="137">
+                    <a href="/contentpages/Reports/AppointmentsReport.aspx" target="_self">Appointments Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="138">
+                    <a href="/contentpages/Reports/SAITANFAttendanceOPReport.aspx" target="_self">Referral/Payer Source Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="139">
+                    <a href="/contentpages/Reports/SAITANFAttendanceOPReport.aspx" target="_self">SAI - TANF Attendance Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="140">
+                    <a href="/contentpages/Reports/SAITANFAttendanceOPReport.aspx?menumode=collapsed" target="_self">OP</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="141">
+                    <a href="/contentpages/Reports/SAITANFAttendanceIOPReport.aspx" target="_self">IOP</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="142">
+                    <a href="/contentpages/Reports/SAITANFAttendancePCReport.aspx" target="_self">PC</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="143">
+                    <a href="/contentpages/Reports/SAIGAAttendanceOPReport.aspx" target="_self">SAI - GA Attendance Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="144">
+                    <a href="/contentpages/Reports/SAIGAAttendanceOPReport.aspx" target="_self">OP</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="145">
+                    <a href="/contentpages/Reports/SAIGAAttendanceIOPReport.aspx" target="_self">IOP</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="146">
+                    <a href="/contentpages/Reports/SAIGAAttendancePCReport.aspx" target="_self">PC</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="147">
+                    <a href="/contentpages/Reports/SAIClientInActiveTreatmentReport.aspx" target="_self">SAI Client in Active Treatment</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="126">
+                    <a href="#" target="_self">Billing Reports</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="412">
+                    <a href="/Reports/Billing/PayerSourceTrackingReport" target="_self">Payer Source Tracking Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4001">
+                    <a href="/Reports/Billing/RevenueTotalsReport" target="_self">Revenue Totals Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="149">
+                    <a href="/contentpages/Reports/QAReport.aspx" target="_self">QA Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="411">
+                    <a href="/Reports/Qa/BillingDenialsReport" target="_self">Billing Denials Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="419">
+                    <a href="/Reports/Qa/NoShowTrackingReport" target="_self">No Show Tracking Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="420">
+                    <a href="/Reports/Qa/AdmittedReferredClientsReport" target="_self">Admitted Referred Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="421">
+                    <a href="/Reports/Qa/NoShowsRescheduleRateReport" target="_self">No-shows Reschedule Rate Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="422">
+                    <a href="/Reports/Qa/DischargeAnalysisReport" target="_self">Discharge Analysis Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="423">
+                    <a href="/Reports/Qa/UrineQaReport" target="_self">Urine QA Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="437">
+                    <a href="#" target="_self">Provider Performance Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="438">
+                    <a href="/Reports/Qa/ProviderPerfomance/AdmittedClients" target="_self">Admitted Clients</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="439">
+                    <a href="/Reports/Qa/ProviderPerfomance/DischargeClients" target="_self">Discharge Clients</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="427">
+                    <a href="/Reports/Qa/ClientsIncidentReport" target="_self">Clients Incident Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="428">
+                    <a href="/Reports/Qa/EmployeesIncidentReport" target="_self">Employees Incident Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="430">
+                    <a href="/Reports/Qa/RelapsedClientsReport" target="_self">Client Readmission Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="432">
+                    <a href="/Reports/Qa/WaitingTimeReport" target="_self">Waiting Time Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="755">
+                    <a href="/Reports/Qa/Part822Programs" target="_self">Part 822 Programs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4107">
+                    <a href="/Reports/Qa/MFAAuditReport" target="_self">MFA Audit report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="153">
+                    <a href="/Reports/DailyReferralsReport" target="_self">Daily Referrals Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="523">
+                    <a href="#" target="_self">Certification Reports</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="524">
+                    <a href="#" target="_self">Audit Reports</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="525">
+                    <a href="/Reports/Certification/Audit/ClientAuditReport" target="_self">Client Audit Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="526">
+                    <a href="/Reports/Certification/Audit/UserAuditReport" target="_self">User Audit Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="527">
+                    <a href="/Reports/Certification/Audit/AuditLogStatusReport" target="_self">Audit Log Status Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="574">
+                    <a href="#" target="_self">Bed Management Reports</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="575">
+                    <a href="/Reports/BedManagement/BedUtilizationReport" target="_self">Bed Utilization Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="678">
+                    <a href="/Reports/Alerts/UnattendedClientsReport" target="_self">Alerts Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="679">
+                    <a href="/Reports/Alerts/NoUrineResultsReport" target="_self">No Urine Result Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="681">
+                    <a href="/Reports/Alerts/UnattendedClientsReport" target="_self">Unattended Clients Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="682">
+                    <a href="/Reports/Alerts/NoUrineAnalysisReviewReport" target="_self">No Urine Analysis Review Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="683">
+                    <a href="/Reports/Alerts/RefillMedicationListReport" target="_self">Refill Medication List Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="687">
+                    <a href="/Reports/Alerts/PrivatePayClientsWithUnpaidBalanceReport" target="_self">Private Pay Clients With Unpaid Balance Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="688">
+                    <a href="/Reports/Alerts/NoIndividualSessionReport" target="_self">No Individual Session Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2956">
+                    <a href="/Reports/Alerts/PrivateInsuranceBalancesDueReport" target="_self">Private Insurance Balances Due Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="684">
+                    <a href="/Reports/WidgetReports/ExpiredRequirements" target="_self">Widgets Report</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="689">
+                    <a href="/Reports/WidgetReports/MyCaseloadReport" target="_self">My CaseLoad Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="691">
+                    <a href="/Reports/WidgetReports/SessionHours" target="_self">Session Hours Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="692">
+                    <a href="/Reports/WidgetReports/IncompleteProgressNotes" target="_self">Incomplete Progress Notes Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="693">
+                    <a href="/Reports/WidgetReports/PositiveUrineScreen" target="_self">Positive Urine Screens Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="695">
+                    <a href="/Reports/WidgetReports/TransitionalDischargedPlans" target="_self">Transitional / Discharged Plans Due</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="697">
+                    <a href="/Reports/WidgetReports/MyScheduleReport" target="_self">My Schedule Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="686">
+                    <a href="/Reports/WidgetReports/MonthlyProgressReportDue" target="_self">Monthly Progress Report Due</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="685">
+                    <a href="/Reports/WidgetReports/ExpiredRequirements" target="_self">Expired Employee Requirements Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="707">
+                    <a href="/Reports/WidgetReports/MultiDisciplinaryTreatmentPlanReport" target="_self">Multi-Disciplinary Treatment Plan Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="708">
+                    <a href="/Reports/WidgetReports/NoSignatureNotesReport" target="_self">Documents With Missing Signatures</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="742">
+                    <a href="/Reports/WidgetReports/MentalHealthClinicalComplianceReport" target="_self">MH Clinical Compliance Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2939">
+                    <a href="/Reports/WidgetReports/SubstanceAbuseClinicalComplianceReport" target="_self">SA Clinical Compliance Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="1816">
+                    <a href="/Reports/WidgetReports/MultiDisciplinaryInitialTreatmentPlanReviewReport" target="_self">Multi-Disciplinary Initial/Treatment Plan Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="1842">
+                    <a href="/Reports/WidgetReports/IncompleteLevelOfParticipationNotesReport" target="_self">MH Groups Incomplete Level of Participation Notes Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="1843">
+                    <a href="/Reports/WidgetReports/MentalHealthWeeklyProgressNoteDueReport" target="_self">Mental Health Weekly Progress Note Due Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2843">
+                    <a href="/Reports/WidgetReports/TelemedicineReport" target="_self">Telemedicine Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2874">
+                    <a href="/Reports/WidgetReports/MyClientCaseloadReport" target="_self">My Case Load List</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4092">
+                    <a href="/Reports/WidgetReports/MultiDisciplinaryTreatmentPlanV3Report" target="_self">Multi-Disciplinary Treatment Plan V. 3.0 Report</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="4123">
+                    <a href="/Reports/WidgetReports/ClientMonthlyScorecardReport" target="_self">Client Monthly Scorecard Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="702">
+                    <a href="/Reports/ToDoReport" target="_self">TODO Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="22" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-meetings" aria-hidden="true"></i>
+                                        <span class="menu-item">Meetings / Group Supervision</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="99">
+                    <a href="/contentpages/Meetings/MeetingAgenda.aspx" target="_self">Meeting Agenda</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="96">
+                    <a href="/contentpages/Meetings/SupervisionAttendance.aspx" target="_self">Meeting Attendance Sheet</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="97">
+                    <a href="/contentpages/Meetings/ClinicalStaffMeetingForm.aspx" target="_self">Clinical Staff Meeting Minutes</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="675">
+                    <a href="/MeetingsGroupSupervision/AdministrativeStaffMeetingMinutes" target="_self">Administrative Staff Meeting Minutes</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="23" style="display: list-item;">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-policy" aria-hidden="true"></i>
+                                        <span class="menu-item">Policies</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="359">
+                    <a href="/contentpages/Policies/AdministrativePolicy.aspx" target="_self">Administrative </a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="360">
+                    <a href="/contentpages/Policies/SubstanceAbusePolicy.aspx" target="_self">Clinical</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="404">
+                    <a href="/contentpages/Policies/SubstanceAbusePolicy.aspx" target="_self">Substance Abuse</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="405">
+                    <a href="/contentpages/Policies/MentalHealthPolicy.aspx" target="_self">Mental Health</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="361">
+                    <a href="/contentpages/Policies/EmploymentPolicy.aspx" target="_self">Employment</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="362">
+                    <a href="/contentpages/Policies/BuildingPolicy.aspx" target="_self">Building</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="363">
+                    <a href="/contentpages/Policies/BuildingPolicy.aspx" target="_self">Building Policies</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="364">
+                    <a href="/contentpages/Policies/EvacuationDiagram.aspx" target="_self">Evacuation Diagram / RACE</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="365">
+                    <a href="/contentpages/Policies/Drill.aspx" target="_self">Drills</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="366">
+                    <a href="/contentpages/Policies/FireSafetyInspection.aspx" target="_self">Fire Safety Inspection (Bi-annual)</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="367">
+                    <a href="/contentpages/Policies/MonthlyTesting.aspx" target="_self">Monthly/Yearly Testing (lighting, heating, ventilation)</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="368">
+                    <a href="/contentpages/Policies/TelephoneBombThreat.aspx" target="_self">Telephone Bomb Threats</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="406">
+                    <a href="/contentpages/Policies/AdditionalPolicy.aspx" target="_self">Additional</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="561">
+                    <a href="/Policies/SignInPolicy" target="_self">Sign-In</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2876">
+                    <a href="/Policies/HumanResource" target="_self">Human Resource</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2877">
+                    <a href="/Policies/ProgramCriteria" target="_self">Program Criteria</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2880">
+                    <a href="/Policies/Services" target="_self">Services</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2879">
+                    <a href="/Policies/SafetyAndReporting" target="_self">Safety and Reporting</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2878">
+                    <a href="/Policies/QualityAssurance" target="_self">Quality Assurance</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="24" style="display: list-item;">
+                                    <a href="/contentpages/Contracts/Contract.aspx" target="_self" role="menuitem">
+                                        <i class="hdr-contract" aria-hidden="true"></i>
+                                        <span class="menu-item">Contracts</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="25" style="display: list-item;">
+                                    <a href="javascript:Zoobook.Modules.FormModule().toastInfo('Under Construction', 'Coming Soon')" target="_self" role="menuitem">
+                                        <i class="hdr-marketing" aria-hidden="true"></i>
+                                        <span class="menu-item">Marketing</span>
+                                    </a>
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="100" style="">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-referral" aria-hidden="true"></i>
+                                        <span class="menu-item">Referral / Payer Source</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="101">
+                    <a href="/contentpages/Referrals/ReferralAgency.aspx" target="_self">View Referral/Payer Sources</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="102">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.AddReferralAgency()" target="_self">Add Referral/Payer Source</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="103">
+                    <a href="/contentpages/Referrals/ReferralPerson.aspx" target="_self">View Referral/Payer Persons</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="104">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.AddReferralPerson()" target="_self">Add Referral/Payer Person</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="388">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-training" aria-hidden="true"></i>
+                                        <span class="menu-item">In-Service Training</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="596">
+                    <a href="/InServiceTraining/StaffTrainingGlobalSettings" target="_self">Staff Training Global Settings</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="597">
+                    <a href="/InServiceTraining/TrainingMaterialsManagement" target="_self">Training Materials Management</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="598">
+                    <a href="/InServiceTraining/TestSubmissions" target="_self">In-Service Training Test Submissions</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="599">
+                    <a href="/InServiceTraining/Summary" target="_self">In-Service Training Summary</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="546">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-history" aria-hidden="true"></i>
+                                        <span class="menu-item">History</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="550">
+                    <a href="#" target="_self">Client Files History</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="551">
+                    <a href="/History/ClientFilesHistory/ClientHistoryViewer" target="_self">Client Details</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="552">
+                    <a href="/History/ClientFilesHistory/AllergyHistoryViewer" target="_self">Client Allergy</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="553">
+                    <a href="/History/ClientFilesHistory/NicotineAssessmentHistoryViewer" target="_self">Nicotine Assessment</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="554">
+                    <a href="/History/ClientFilesHistory/FamilyHistoryViewer" target="_self">Family History</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="555">
+                    <a href="/History/ClientFilesHistory/VitalSignsHistoryViewer" target="_self">Vital Signs</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="556">
+                    <a href="/History/ClientFilesHistory/ImmunizationsRecordHistoryViewer" target="_self">Immunizations</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="557">
+                    <a href="/History/ClientFilesHistory/MedicationListHistoryViewer" target="_self">Medication List</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="558">
+                    <a href="/History/ClientFilesHistory/ProblemListHistoryViewer" target="_self">Problem List</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="559">
+                    <a href="/History/ClientFilesHistory/ImplantableDeviceListHistoryViewer" target="_self">Implantable Device List</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="560">
+                    <a href="/History/ClientFilesHistory/DoctorOrderHistoryViewer" target="_self">Doctor's Order</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="603">
+                    <a href="/History/ClientFilesHistory/ProgressNote" target="_self">Progress Notes</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="696">
+                    <a href="/History/DropDownHistory/DropDownHistoryViewer" target="_self">DropDown History</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="547">
+                    <a href="#" target="_self">Messages</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="548">
+                    <a href="/History/Messages/GenericLetter" target="_self">Generic Letter</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="601">
+                    <a href="#" target="_self">Settings</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="602">
+                    <a href="/History/Settings/AppointmentType" target="_self">Service Type</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+                <li class="drop-sub" data-id="618">
+                    <a href="#" target="_self">Appointments</a>
+                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="619">
+                    <a href="/History/Appointments/DeletedAppointmentsReport" target="_self">Deleted Appointments Report</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item dropdown text-center" data-id="105">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="hdr-help" aria-hidden="true"></i>
+                                        <span class="menu-item">Help</span>
+                                    </a>
+                                    
+
+
+    <ul class="dropdown-menu dropdown-menu-right">
+                <li class="drop-sub" data-id="106">
+                    <a href="/contentpages/Help/CliniciansLibrary.aspx" target="_self">Clinicians Library</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="121">
+                    <a href="/contentpages/Help/AdminsLibrary.aspx" target="_self">Admins Library</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="122">
+                    <a href="#">How To Use Zoobook</a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/AdmittingClients">Admiting a Client</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/ExtensionPointsInstructions">How to Use the Extension Point</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/GeneralBillingDemo">General Billing Demo</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/SchedulingIndividualAndCaseManagementSessions">Scheduling Individual and Case Management Sessions</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/ZoobookUserManual">Zoobook User Manual</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/SettingUpEmployeeProfile">Setting up Employee Profile</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/ModuleManagementAndFormRemoval">Module Management and Form Removal</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/ClinicalStaffMeetingSchedulingandDocumenting">Clinical Staff Meeting Scheduling and Documenting</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowtoSetupTheNotificationsManagerInZoobook">How to Set up The Notifications Manager In Zoobook</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowtouseTelemedicineinZoobook">How to use Telemedicine in Zoobook</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToAddReferralandPayerSources">How To Add Referral and Payer Sources</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToUseTheRelatedClientAccountsIntheClientFile">How To Use The Related Client Accounts In the Client File</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToSaveOrUploadDocumentsInTheGroupCurriculumModule">How To Save Or Upload Documents In The Group Curriculum Module</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/HowToMakeAnAvailableService">How to Make an Available Service (Download Document)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToSetupWorkShifts">How To Setup Work Shifts</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToChangeOrUpdateNJSAMSCredentialsUsedForDataExtraction">How To Change Or Update NJSAMS Credentials Used For Data Extraction</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToChangeYourPassword">How To Change Your Password</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/QuickWayToSetClientAttendanceStatusInaGroupSession">Quick Way To Set Client Attendance Status In a Group Session</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/UnlockingUserAccountsAndChangingPasswords">Unlocking User Accounts and Changing Passwords</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToDeactivateorMakeAnEmployeeAccountIntactive">How To Deactivate or Make An Employee Account Inactive</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToAddNewEmployees">How To Add New Employees</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/UrineCollectorInstructions">Urine Collector Instructions (Download Document)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToAddorExtendAReoccurringAppointment">How To Add or Extend A Reoccurring Appointment</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToSetupTheProvisionalUserAuditor">How To Setup The Provisional User (Auditor)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/MentalHealthIndividualSessionDAP-HowtoScheduleIt">Mental Health Individual Session (DAP) - How to Schedule It (PDF)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/GroupSessionSelectionandHowSetItUp-doc">Group Session Selection and How Set It Up  (Download Document)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Documents/HowToSetupTheParticipationLevelPoints-doc">How To Setup The Level of Participation Points (Download Document)</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/GroupSessionSelectionAndSettings">Group Session Selection And Settings</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowToSetupTheLevelofParticipationPoints">How To Setup The Level of Participation Points</a>
+                            </li>
+                            <li class="drop-sub">
+                                <a href="/Help/HowToUseZoobook/Videos/HowtoCreateSingleSignDocuments">How to Create Single Sign Documents</a>
+                            </li>
+                    </ul>
+                </li>
+                <li class="drop-sub" data-id="107">
+                    <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self">Report A Problem</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="378">
+                    <a href="/contentpages/Help/ReportedProblems.aspx" target="_self">Reported Problems</a>
+                    
+
+
+
+                </li>
+                <li class="drop-sub" data-id="2875">
+                    <a href="/Help/ReleaseNotes" target="_self">Release Notes</a>
+                    
+
+
+
+                </li>
+    </ul>
+
+                                </li>
+                                <li class="carousel-item text-center" role="presentation" data-id="4072">
+                                    <a href="#" target="_self" role="menuitem">
+                                        <i class="pe-7s-monitor" aria-hidden="true"></i>
+                                        <span class="menu-item">Test</span>
+                                    </a>
+                                </li>
+                    </ul>
+            </div>
+
+            <button type="button" class="prev btn btn-link" data-jcarouselcontrol="true"><span class="glyphicon glyphicon glyphicon-chevron-left"></span></button>
+            <button type="button" class="next btn btn-link" data-jcarouselcontrol="true"><span class="glyphicon glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+
+</header>
+
+<div class="modal fade" style="z-index:1060" id="confirm-report-a-problem" tabindex="-1" role="dialog" aria-labelledby="confirm-report-ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="confirm-report-ModalLabel">Confirm</h4>
+            </div>
+            <div class="modal-body">
+                Do you want to report a problem using the captured screenshot?
+            </div>
+            <div class="modal-footer">
+                <a id="yes-button" class="btn btn-success">Yes</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        var confirmReportAProblemModal = "#confirm-report-a-problem";
+        var themeModule = Zoobook.Modules.ThemeModule;
+
+        function appendZero(x, n)
+        {
+            while (x.toString().length < n)
+            {
+                x = "0" + x;
+            }
+
+            return x;
+        }
+
+        function generateFile()
+        {
+            var today = new Date();
+
+            return "screenshot_" + (today.getMonth() < 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) +
+                (today.getDate() < 10 ? "0" + today.getDate() : today.getDate()) +
+                today.getFullYear() + "_" +
+                (today.getHours() < 10 ? "0" + today.getHours() : today.getHours()) +
+                (today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes()) +
+                (today.getSeconds() < 10 ? "0" + today.getSeconds() : today.getSeconds()) + "_" +
+                appendZero(today.getMilliseconds(), 3) + ".jpg";
+        }
+
+        $("#screenshot-button").on("click", function ()
+        {
+            var promise = Zoobook.Ajax.BaseAjax('/Login/IsAuthorize', 'GET').execute();
+            promise.done(function (operationStatus)
+            {
+                if (operationStatus.isSuccess)
+                {
+                    html2canvas($("html"),
+                        {
+                            onrendered: function (canvas)
+                            {
+                                var image = canvas.toDataURL("image/jpeg");
+                                image = image.replace(/^data[:]image\/(png|jpg|jpeg)[;]base64,/i, "");
+
+                                var file = generateFile();
+                                var requestData = JSON.stringify
+                                    ({
+                                        imageData: image,
+                                        imageFile: file
+                                    });
+                                var promise = Zoobook.Ajax.BaseAjax('/Menu/SaveScreenshot', 'POST', requestData).execute();
+
+                                promise.done(function (operationStatus)
+                                {
+                                    if (operationStatus.isSuccess)
+                                        window.location = '/Menu/DownloadScreenshot?imageFile=' + file;
+                                });
+
+                                $(confirmReportAProblemModal).modal({ backdrop: "static", keyboard: false })
+                                    .on("click", "div.modal-footer a#yes-button", function ()
+                                    {
+                                        $("body").append($("#report-a-problem-modal").modal("show"));
+                                        $(confirmReportAProblemModal).modal("hide");
+                                        $("#report-a-problem-modal").find(".modal-body").find(".report-a-problem-loader").show();
+                                        $("#report-a-problem-modal").find(".modal-body").find("iframe").hide();
+                                        themeModule.ReportFileAsProblem(file);
+                                    });
+
+                                $("body > div.modal-backdrop.fade.in").css("z-index", "15");
+                                $("body").append($(confirmReportAProblemModal).modal("show"));
+                            }
+                        });
+                }
+            });
+        });
+
+        $('.notifications-dropdown').on('click', function () {
+            var url = "/Notification/NotificationDropDown";
+            var promise = Zoobook.Ajax.BaseAjax(url, "GET").execute();
+
+            promise.done(function (content) {
+
+                $('#notifications-dropdown').html(content);
+            });
+
+        });
+    });
+</script>
+    <div class="container-fluid" role="main">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                
+
+
+    <div id="panelStatusMenu">
+        <div class="page-header">
+            <h4>Status</h4>
+        </div>
+
+        <ul class="nav no-icons">
+                <li>
+                    <a href="/Clients/ViewClients" class="">Active Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/2" class="">Discharged Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/3" class="active">Pending Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/4" class="">Trashed Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/5" class="">Administrative Discharged Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/6" class="">E-Refferred New Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/7" class="">Denied Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/8" class="">Wait List Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/9" class="">Legacy Clients</a>
+                </li>
+                <li>
+                    <a href="/Clients/ViewClients/10" class="">Unrecognized Clients</a>
+                </li>
+
+
+
+            <li>
+                <a href="/Clients/ViewClients/0" class="">All Clients</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-10 main" id="main-container" tabindex="-1">
+                
+
+
+<input id="ViewClientsBusinessRules" name="ViewClientsBusinessRules" type="hidden" value="{&quot;Id&quot;:0,&quot;BaseModuleId&quot;:0,&quot;RulesJson&quot;:null,&quot;CompanyId&quot;:0,&quot;CompanyBranchId&quot;:null,&quot;CompanyBranchIdCatcher&quot;:0,&quot;CreatedById&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;CreatedBy&quot;:null,&quot;CreatedDate&quot;:&quot;\/Date(-62135578800000)\/&quot;,&quot;HasBusinessRules&quot;:false,&quot;Rules&quot;:{&quot;ShowMinor&quot;:false,&quot;ShowYoungAdult&quot;:false,&quot;ShowAdult&quot;:false,&quot;ShowNonTreatment&quot;:false,&quot;ShowIDRCClient&quot;:false,&quot;ShowSubstanceAbuseClient&quot;:false,&quot;ShowMentalHealthClient&quot;:false,&quot;ShowRedLOC&quot;:false,&quot;EnforceViewableClientsRestriction&quot;:false,&quot;ViewableClientsRestrictionExemptedRoles&quot;:[],&quot;ViewableClientsRestrictionExemptedUsers&quot;:[]},&quot;FieldsJson&quot;:null,&quot;Fields&quot;:null,&quot;BladeFieldsJson&quot;:null,&quot;BladeFields&quot;:null}">
+
+
+<div id="view-clients-container">
+    <h4 class="hdr-title">
+        <i class="hdr-clients hdr-lg" aria-hidden="true"></i> <span>Pending Clients</span>
+        <a href="/Clients/Add" class="btn btn-primary pull-right">Add Client</a>
+    </h4>
+
+    <input id="hidden-field-filters" type="hidden" value="{&quot;companyBranchId&quot;:null,&quot;statusId&quot;:3}">
+    <input name="isNjCompany" type="hidden" value="True">
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Tracks</label>
+            <select id="dropdown-tracks" multiple="" class="multi-select" style="display: none;">
+                    <option value="377670">N/A</option>
+            </select><button type="button" class="ui-multiselect ui-widget ui-state-default ui-corner-all" aria-haspopup="true" aria-label="0 selected. . Press enter to select or desselect items." style="width: 225px;"><span class="ui-icon ui-icon-triangle-2-n-s"></span><span>Select options</span></button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button type="button" id="button-apply-filter" class="btn btn-primary filter-button"><i class="fa fa-filter" aria-hidden="true"></i>&nbsp; Apply Filter</button>
+        </div>
+    </div>
+
+    <br>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+    <br> <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <div id="client-list-table_wrapper" class="dataTables_wrapper no-footer"><div class="ColVis"><button class="ColVis_Button ColVis_MasterButton"><span>Show/Hide Columns</span></button></div><div class="DTTT_container"><a class="DTTT_button btn btn-default" id="ToolTables_client-list-table_2" title="View print view" tabindex="0" aria-controls="client-list-table"><span>Print</span></a></div><div class="DTTT_container"><button type="button" class="btn btn-default export-to-excel" title="Export to Excel">Export to Excel</button></div><div class="clear"></div><div class="dataTables_length" id="client-list-table_length"><label>Show <select name="client-list-table_length" aria-controls="client-list-table" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="-1">All</option></select> entries</label></div><div id="client-list-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="" readonly="readonly" onfocus="javascript: this.removeAttribute('readonly')" placeholder="" aria-controls="client-list-table"></label></div><div id="client-list-table_processing" class="dataTables_processing" style="display: none;"><div class="bg-primary"><div class="alert" role="alert"><h1 style="margin: 15px"><i class="fa fa-cog fa-spin"></i> Processing. Please wait...</h1></div></div></div><table id="client-list-table" class="grid dataTable no-footer" role="grid" aria-describedby="client-list-table_info" style="width: 2031px;">
+                    <thead>
+                        <tr role="row"><th data-column-index="1" class="sorting_asc" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Client: activate to sort column descending" style="width: 33px;">Client</th><th data-column-index="2" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 34px;">Status</th><th data-column-index="3" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Admission Date: activate to sort column ascending" style="width: 56px;">Admission Date</th><th data-column-index="4" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Pending Type: activate to sort column ascending" style="width: 44px;">Pending Type</th><th data-column-index="5" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 21px;">Age</th><th data-column-index="6" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 40px;">Gender</th><th data-column-index="7" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Birthdate: activate to sort column ascending" style="width: 55px;">Birthdate</th><th data-column-index="8" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 44px;">Address</th><th data-column-index="9" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="County: activate to sort column ascending" style="width: 39px;">County</th><th data-column-index="10" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Date of First Call: activate to sort column ascending" style="width: 28px;">Date of First Call</th><th data-column-index="11" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Date of Most Recent Call: activate to sort column ascending" style="width: 39px;">Date of Most Recent Call</th><th data-column-index="12" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Primary Counselor: activate to sort column ascending" style="width: 56px;">Primary Counselor</th><th data-column-index="13" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Primary Phone: activate to sort column ascending" style="width: 43px;">Primary Phone</th><th data-column-index="14" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Cell Phone: activate to sort column ascending" style="width: 35px;">Cell Phone</th><th data-column-index="15" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Level of Care: activate to sort column ascending" style="width: 29px;">Level of Care</th><th data-column-index="16" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="
+ STATE ID                            : activate to sort column ascending" style="width: 35px;">
+ <span>STATE ID</span>                            </th><th data-column-index="17" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Client ID: activate to sort column ascending" style="width: 33px;">Client ID</th><th data-column-index="18" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Primary Payer: activate to sort column ascending" style="width: 43px;">Primary Payer</th><th data-column-index="19" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Secondary Payer: activate to sort column ascending" style="width: 57px;">Secondary Payer</th><th data-column-index="20" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Primary Referrer: activate to sort column ascending" style="width: 47px;">Primary Referrer</th><th data-column-index="23" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Discharge Reason: activate to sort column ascending" style="width: 54px;">Discharge Reason</th><th data-column-index="25" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Company Branch: activate to sort column ascending" style="width: 51px;">Company Branch</th><th data-column-index="26" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Primary Email: activate to sort column ascending" style="width: 43px;">Primary Email</th><th data-column-index="27" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Secondary Email: activate to sort column ascending" style="width: 57px;">Secondary Email</th><th data-column-index="28" class="sorting" tabindex="0" aria-controls="client-list-table" rowspan="1" colspan="1" aria-label="Tracks: activate to sort column ascending" style="width: 34px;">Tracks</th><th data-column-index="30" class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 4px;"></th><th data-column-index="31" class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 5px;"></th></tr>
+                    </thead>
+                <tbody><tr role="row" class="odd"><td class="sorting_1"><a href="/Clients/288612" target="_blank">Henzi , Hareem</a></td><td>Pending</td><td></td><td></td><td>14</td><td>Male - M</td><td>07/16/2009</td><td>, ,</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>All</td><td></td><td></td><td></td><td><a class="link-edit" data-toggle="tooltip" data-placement="top" href="/Clients/288612" title="Edit"> <i class="pe-7s-note"></i></a></td><td><a class="link-delete" href="#" data-client-id="288612" data-toggle="tooltip" data-placement="top" title="Delete"><i class="pe-7s-trash"></i></a></td></tr><tr role="row" class="even"><td class="sorting_1"><a href="/Clients/288625" target="_blank">Jamal , Haroon</a></td><td>Pending</td><td></td><td></td><td>25</td><td>Male - M</td><td>11/28/1998</td><td>, ,</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>All</td><td></td><td></td><td></td><td><a class="link-edit" data-toggle="tooltip" data-placement="top" href="/Clients/288625" title="Edit"> <i class="pe-7s-note"></i></a></td><td><a class="link-delete" href="#" data-client-id="288625" data-toggle="tooltip" data-placement="top" title="Delete"><i class="pe-7s-trash"></i></a></td></tr><tr role="row" class="odd"><td class="sorting_1"><a href="/Clients/288626" target="_blank">Jamal , Haroon</a></td><td>Pending</td><td></td><td></td><td>25</td><td>Male - M</td><td>11/28/1998</td><td>, ,</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>All</td><td></td><td></td><td></td><td><a class="link-edit" data-toggle="tooltip" data-placement="top" href="/Clients/288626" title="Edit"> <i class="pe-7s-note"></i></a></td><td><a class="link-delete" href="#" data-client-id="288626" data-toggle="tooltip" data-placement="top" title="Delete"><i class="pe-7s-trash"></i></a></td></tr></tbody></table><div class="dataTables_info" id="client-list-table_info" role="status" aria-live="polite">Showing 1 to 3 of 3 entries</div><div class="dataTables_paginate paging_full_numbers" id="client-list-table_paginate"><a class="paginate_button first disabled" aria-controls="client-list-table" data-dt-idx="0" tabindex="0" id="client-list-table_first">First</a><a class="paginate_button previous disabled" aria-controls="client-list-table" data-dt-idx="1" tabindex="0" id="client-list-table_previous">Previous</a><span><a class="paginate_button current" aria-controls="client-list-table" data-dt-idx="2" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="client-list-table" data-dt-idx="3" tabindex="0" id="client-list-table_next">Next</a><a class="paginate_button last disabled" aria-controls="client-list-table" data-dt-idx="4" tabindex="0" id="client-list-table_last">Last</a></div></div>
+            </div>
+        </div>
+    </div>
+
+    <form class="hidden view-clients-printer" action="/Clients/ViewClients/Print" method="POST" target="_blank">
+        <input id="hidden-field-print-filters" name="printFiltersJson" type="hidden" value="{&quot;companyBranchId&quot;:null,&quot;statusId&quot;:3}">
+    </form>
+
+    <form class="hidden view-clients-export-csv" action="/Clients/ViewClients/DownloadAsExcel" method="POST" target="_blank">
+        <input id="hidden-field-export-csv-filters" name="exportCsvFiltersJson" type="hidden" value="{&quot;companyBranchId&quot;:null,&quot;statusId&quot;:3}">
+    </form>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    
+
+ <div class="colophon row">
+    <div class="col-md-12">
+        <p class="h4 text-center">
+            Want our awesome team to help you out? Email us at <a style="font-size: 18px; font-weight: bold;" href="mailto:support@zoobooksystems.com">support@zoobooksystems.com</a>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="row">
+            <div class="col-xs-6 text-left">
+                © 2023 Zoobook. Made by Zoobook Systems LLC.
+                <br>
+                Version: 2.1.6.16838
+            </div>
+            <div class="col-xs-6 text-right">
+                NIST Date/Time: <span class="nist-date-time">12/4/2023 2:29:43 PM</span>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+<div class="modal fade modal-wide" style="z-index:1060" id="call-log-modal" tabindex="-1" role="dialog" aria-label="Call Log Form" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="myModalLabel2">Call Log Form</h4>
+            </div>
+            <div class="modal-body">
+                <iframe class="widget-iframe" src="" width="100%" height="450" frameborder="0" style="height:500px !important"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-wide" style="z-index:1060" id="client-notes-to-file-modal" tabindex="-1" role="dialog" aria-label="Client Notes To File" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="cntf-moduleHeaderLabel">Client Notes To File</h4>
+            </div>
+            <div class="modal-body">
+                <iframe class="widget-iframe" src="" width="100%" height="450" frameborder="0" style="height: 500px !important;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-wide" style="z-index:1060" id="phi-disclosure-to-file-modal" tabindex="-1" role="dialog" aria-label="Phi Disclosure File" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="cntf-moduleHeaderLabel">PHI Disclosure Log</h4>
+            </div>
+            <div class="modal-body">
+                <iframe class="widget-iframe" src="" width="100%" height="450" frameborder="0" style="height: 500px !important;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-wide" style="z-index:1060" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="myModalLabel5">Quick Add Contact</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="" width="100%" height="450" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-wide" style="z-index:1060" id="report-a-problem-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog" style="width: 700px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="myModalLabel3">Report A Problem</h4>
+            </div>
+            <div class="modal-body">
+                <span class="report-a-problem-loader"><img src="/resources/graphics/loader.white.gif" alt="Loading"></span>
+                <iframe src="" width="100%" height="450" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-wide" style="z-index:1060" id="referral-source-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog" style="width: 900px; height:500px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="myModalLabel4">Referral Source / Payor</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="" width="100%" frameborder="0" class="referral-source-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade modal-wide" style="z-index:1060" id="module-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="moduleHeaderLabel">
+                    <span class="sr-only">Module Modal</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="" width="100%" frameborder="0" class="module-source-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade modal-wide" style="z-index:1060" id="todo-module-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="todo-moduleHeaderLabel">To Do</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="" width="100%" frameborder="0" class="todo-source-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="signature-copier-modal" style="z-index:1060" class="signature-copier modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Copy Signature</h4>
+            </div>
+
+            <hr>
+
+            <div class="modal-body">
+                <div class="modal-wrapper scrollbar"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog" aria-labelledby="profile-modal-ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="profile-modal-ModalLabel">My Profile</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" name="username" class="form-control required" placeholder="Username" value="AAAdmin" maxlength="100" disabled="disabled">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="newPassword">Password</label>
+                        <div class="input-group">
+                            <input id="newPassword" type="password" name="newPassword" class="form-control required" placeholder="Password" value="" maxlength="128">
+                            <span class="input-group-addon"><i class="fa fa-eye-slash view-password" aria-hidden="true"></i></span>
+                        </div>
+                        <p class="help-block">At least 6 characters long</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <input id="confirmPassword" type="password" name="confirmPassword" class="form-control required" placeholder="Confirm Password" value="" maxlength="128">
+                            <span class="input-group-addon"><i class="fa fa-eye-slash view-password" aria-hidden="true"></i></span>
+                        </div>
+                        <p class="help-block">At least 6 characters long</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="email">Email</label>
+                        <input id="email" type="text" name="email" class="form-control required" placeholder="Email" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="AAADmin@zb.com" maxlength="50">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary save-button">
+                    <i class="fa fa-save"></i>&nbsp; Save   
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="generic-modal-header">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="generic-modal-header">Log In</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <p class="text-danger">
+                            Your session has expired. Please login again to resume whatever you were doing.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <input type="text" name="username" class="form-control required" placeholder="Username" maxlength="100" aria-label="Username">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <input type="password" name="password" class="form-control required" placeholder="Password" maxlength="100" aria-label="Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <input type="checkbox" id="rememberMe" name="rememberMe" value="true">
+                        <label class="checkbox-label" for="rememberMe">&nbsp;&nbsp;&nbsp;Remember me next time.</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="isModal" value="true">
+                <button type="button" class="btn btn-lg btn-success login-button">Log In</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+ <script src="/resources/vendors/zoobook/js/modules/settings/security/UserMultiFactorAuthentication.min.js?v=638295030395811801"></script>
+
+<script>
+    $(function ()
+    {
+        Zoobook.Modules.UserMultiFactorAuthentication().init();
+    });
+</script>
+
+<div class="mfa-setup-form-container">
+    <style>
+    .barcode-loader {
+        top: 45%;
+        left: 45%;
+        font-size: 50px;
+        color: #a94442;
+        position: absolute;
+    }
+</style>
+<div class="modal fade modal-wide" id="mfa-setup-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title">Multi-Factor Authentication Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 form-group">
+                        <label>Select an Authentication Mode</label>
+                        <select name="mfaAuthenticationModeId" class="form-control required select2-hidden-accessible" data-value="" tabindex="0" aria-hidden="false">
+                            <option value="0">None</option>
+                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single required" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-mfaAuthenticationModeId-7c-container"><span class="select2-selection__rendered" id="select2-mfaAuthenticationModeId-7c-container" title="None">None</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
+                    <div class="col-xs-12 form-group mfa-mobile-number" style="display: none;">
+                        <label>Enter Your Mobile No.</label>
+                        <input type="text" class="form-control required phone-mask" placeholder="Mobile No." name="mfaMobileNumber">
+                    </div>
+
+                    <div class="col-xs-12 form-group mfa-TOTP-authenticator-code" style="display: none;">
+                        
+                        <div class="col-xs-12 mb-5">
+                            <label>Follow these instructions to setup authenticator app</label>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    
+                                    <div class="text-justify mfa-google-authenticator-description hidden">
+                                        Install the <strong>Google Authenticator</strong> app on your mobile device,
+                                        then scan the following QR code with your mobile device or enter the <strong>Manual Entry Key</strong> in installed app.
+                                    </div>
+
+                                    <div class="text-justify mfa-microsoft-authenticator-description hidden">
+                                        Install the <strong>Microsoft Authenticator</strong> app on your mobile device,
+                                        then scan the following QR code with your mobile device or enter the <strong>Manual Entry Key</strong> in installed app.
+                                    </div>
+
+                                    <div class="text-justify mfa-duo-mobile-authenticator-description hidden">
+                                        Install the <strong>Duo Mobile Authenticator</strong> app on your mobile device,
+                                        then scan the following QR code with your mobile device or enter the <strong>Manual Entry Key</strong> in installed app.
+                                    </div>
+
+                                    <div class="text-justify mfa-authy-authenticator-description hidden">
+                                        Install the <strong>Authy Authenticator</strong> app on your mobile device,
+                                        then scan the following QR code with your mobile device or enter the <strong>Manual Entry Key</strong> in installed app.
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <hr>
+                            <div class="col-xs-12 mb-5">
+                                <label>Setup code</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="col-xs-12">
+                                            <div>
+                                                <label class="block"> QR Code: </label>
+                                            </div>
+                                            <span class="barcode-loader block" id="barcodeLoaderSpinner"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span>
+                                            <img id="qrCodeSetupImageUrl" src="" width="125" height="125">
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label style="margin-top: 10px;"> Manual Entry Key: </label><span id="manualEntryKey"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mfa-google-authenticator-downlod-links hidden">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 mb-5">
+                                    <label>Download Google Authenticator</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="col-xs-4">
+                                                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/google-play.png" style="width: 110px;" title="Click to download Google Authenticator app on your device from Google play">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <a href="https://apps.apple.com/us/app/google-authenticator/id388497605" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/app-store.png" style="width: 110px;" title="Click to download Google Authenticator app on your device from Apple Store">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mfa-microsoft-authenticator-downlod-links hidden">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 mb-5">
+                                    <label>Download Google Authenticator</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="col-xs-4">
+                                                <a href="https://play.google.com/store/search?q=microsoft+authenticator+app&amp;c=apps" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/google-play.png" style="width: 110px;" title="Click to download Microsoft Authenticator app on your device from Google play">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <a href="https://apps.apple.com/us/app/microsoft-authenticator/id983156458" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/app-store.png" style="width: 110px;" title="Click to download Microsoft Authenticator app on your device from Apple Store">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mfa-duo-mobile-authenticator-downlod-links hidden">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 mb-5">
+                                    <label>Download Duo Mobile</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="col-xs-4">
+                                                <a href="https://play.google.com/store/search?q=duo%20mobile&amp;c=apps" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/google-play.png" style="width: 110px;" title="Click to download Duo Mobile Authenticator app on your device from Google play">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <a href="https://apps.apple.com/us/app/duo-mobile/id422663827" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/app-store.png" style="width: 110px;" title="Click to download Duo Mobile Authenticator app on your device from Apple Store">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mfa-authy-authenticator-downlod-links hidden">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 mb-5">
+                                    <label>Download Authy Authenticator</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="col-xs-4">
+                                                <a href="https://play.google.com/store/search?q=authy&amp;c=apps" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/google-play.png" style="width: 110px;" title="Click to download Authy Authenticator app on your device from Google play">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <a href="https://apps.apple.com/us/app/twilio-authy/id494168017" target="_blank" style="cursor:pointer">
+                                                    <img src="/resources/images/app-store.png" style="width: 110px;" title="Click to download Authy Authenticator app on your device from Apple Store">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="zb-username" value="AAAdmin">
+
+                <button type="button" class="btn btn-primary mfa-setup-save-button">
+                    <i class="fa fa-save"></i>&nbsp; Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <style>
+    #mfa-verify-modal .mfa-code {
+        margin-right: 8px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #mfa-verify-modal .checkbox-label input[type="checkbox"] {
+        margin-right: 8px;
+        vertical-align: top;
+    }
+</style>
+
+<div class="modal fade modal-wide" id="mfa-verify-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title">Verification Code</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <p>A text message with a 6-digit verification code was just sent to (***) ***-<span class="mobile-last-digits"></span>.</p>
+                        <p>Enter the code below.</p>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input type="text" name="mfaCode1" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode2" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode3" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode4" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode5" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode6" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mfaTrustThisDevice" value="true">
+                            <strong>Trust this device for 30 days</strong>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="isLogin" value="False">
+
+                <button type="button" class="btn btn-info mfa-send-code-button">
+                    <i class="fa fa-comment-o"></i>&nbsp; Send Another Code
+                </button>
+                <button type="button" class="btn btn-success mfa-verify-button">
+                    <i class="fa fa-check"></i>&nbsp; Verify
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <style>
+    #mfa-TOTP-verify-modal .mfa-code {
+        margin-right: 8px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #mfa-TOTP-verify-modal .checkbox-label input[type="checkbox"] {
+        margin-right: 8px;
+        vertical-align: top;
+    }
+</style>
+
+<div class="modal fade modal-wide" id="mfa-TOTP-verify-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title"><span id="totpAuthenticationModeName"></span> Verification Code</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12 form-group">
+                        <p>Enter the <strong>6-digit</strong> verification code received from your <strong>Authenticator App</strong> in the field below.</p>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <input type="text" name="mfaCode1" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode2" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode3" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode4" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode5" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                        <input type="text" name="mfaCode6" class="mfa-code integer-only-input required" placeholder="" value="" maxlength="1">
+                    </div>
+                    <div class="col-md-12">
+                        <br>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mfaTrustThisDevice" value="true">
+                            <strong>Trust this device for 30 days</strong>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="isLogin" value="False">
+                <input type="hidden" name="mfaTOTPAuthenticationModeId" value="False">
+ 
+                <button type="button" class="btn btn-success mfa-verify-button">
+                    <i class="fa fa-check"></i>&nbsp; Verify
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+     <script src="/resources/bundles/scripts/ajax-helpers.min.js?v=638071871805356251"></script>
+     <script src="/resources/vendors/zoobook/js/modules/FileUploadModule.min.js?v=638067854732573310"></script>
+
+
+<div class="modal fade modal-wide" id="todo-shared-modal" tabindex="-1" role="dialog" aria-labelledby="todo-modal-header">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a href="javascript:Zoobook.Modules.ThemeModule.ReportAProblem()" target="_self"><button type="button" class="btn btn-primary btn-sm pull-right" style="margin: 0 10px;" title="Report a Problem" aria-label="Report a Problem"><i class="fa fa-life-ring" aria-hidden="true"></i></button></a>
+                <h4 class="modal-title" id="todo-modal-header">TODO Item Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="resizeable-modal-content">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                    <button id="save-shared-todo-button" type="button" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp; Save</button>
+
+
+
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="todo-ft" class="todo-ft" role="complementary">
+    <div class="cont scrollbar">
+        <div class="todo-header">
+            <button type="button" class="todo-close close" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+            <div class="message">
+                    <img src="/resources/images/mascots/todo-floating-tab/cat-chill.png" alt="cat-mascot">
+
+                    <div class="talkbubble">
+                        Congratulations! You have no TODO today. Go chill and relax.
+                    </div>
+            </div>
+        </div>
+
+        <div class="todo-body">
+            <p class="no-todo text-center ">There  are no pending TODOs for today.</p>
+
+        </div>
+
+        <div class="todo-footer text-center">
+            <a href="/contentpages/Appointment/Default.aspx#todo-container"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Go to your TODO Calendar<i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <button type="button" class="todo-btn btn btn-default">TODO's <span class="badge">0</span></button>
+</div>
+
+<script>
+    $(function ()
+    {
+        var bindFileUploadEvents = function ()
+        {
+            $(".file-upload", $("#todo-shared-modal")).each(function ()
+            {
+                if ($(this).find("a").prop("href") !== "")
+                    $(this).removeClass("hidden");
+                if ($(this).next(".file-upload").find("a").prop("href") !== "")
+                    $(this).find(".add-more").addClass("hidden");
+
+                $(this).on("click", ".add-more", function ()
+                {
+                    $(this).closest(".file-upload").next(".file-upload").removeClass("hidden");
+                    $(this).addClass("hidden");
+                });
+            });
+        };
+
+        var initializedFileUpload = function ()
+        {
+            Zoobook.Modules.FileUploadModule().init();
+            bindFileUploadEvents();
+        };
+
+        $(".edit-todo").on("click", function ()
+        {
+            var $toDoModalSelector = $("#todo-shared-modal");
+
+            function modalContent()
+            {
+                return $toDoModalSelector.find(".resizeable-modal-content");
+            }
+
+            var promise = promise = Zoobook.Ajax.BaseAjax("/Appointments/ToDo/EditToDoForm/" + $(this).data("employee-todo-id") + "/true", "GET").execute();
+
+            promise.done(function (content)
+            {
+                $toDoModalSelector.find(".modal-body").css("height", "450px");
+                modalContent().css(
+                {
+                    "max-height": "420px",
+                    "max-width": "100%",
+                    "overflow-y": "auto",
+                    "width": "100%"
+                });
+                modalContent().html(content);
+                initializedFileUpload();
+            });
+        });
+    });
+</script>
+    <script type="text/javascript">
+        $(function ()
+        {
+            SJ.iwc.SignalR.getHubProxy('specificUserNotificationHub',
+            {
+                client:
+                {
+                    notify: function (message)
+                    {
+                        message = '<p>' + message + '</p>';
+                        Zoobook.Modules.CommonModule().createMascotNotification({ content: message });
+                    }
+                }
+            });
+
+            SJ.iwc.SignalR.start();
+
+
+            if (window.self !== window.top)
+            {
+                var isInTransitionalDischargePlan = $('#transitional-discharge-plan-container').length > 0;
+                var isInChartReview = parent.location.href.toLowerCase().includes('chartreviewform');
+
+                if (isInTransitionalDischargePlan && !isInChartReview)
+                {
+                    $("header").addClass("hidden");
+                    $("footer").addClass("hidden");
+                    $("#form div.col-xs-2.sidebar").addClass("hidden");
+                    $("#form div.record-navigator-container.row").addClass("hidden");
+
+                    var mainContainer = $("#form div.col-xs-10.main");
+                    mainContainer.addClass("col-xs-12");
+                    mainContainer.removeClass("col-xs-10");
+                }
+            }
+
+            $("#todo-ft").on('click', '.todo-btn, .todo-close', function ()
+            {
+                $(this).closest('.todo-ft').find('.cont').slideToggle("fast");
+            });
+
+            var toDoModalSelector = "#todo-shared-modal";
+            var formContainer = toDoModalSelector + " #todo-form";
+
+            $(toDoModalSelector).on("click", "#save-shared-todo-button", function ()
+            {
+                var blockedElementSelector = toDoModalSelector + " .modal-content";
+
+                Zoobook.Modules.CommonModule().altBlockUi(blockedElementSelector);
+
+                var formData = Zoobook.Modules.FormModule().createFormData(formContainer);
+
+                var $fileUploadField = $('input[name="postedFiles"]', $(formContainer));
+                $.each($fileUploadField, function (indexUpload, fileUpload)
+                {
+                    $.each(fileUpload.files, function (index, file)
+                    {
+                        formData.append("postedFiles", file);
+                    });
+                });
+
+                formData.append("startDate", moment().startOf('isoweek').format("M-D-YYYY"));
+                formData.append("endDate", moment().endOf('isoweek').format("M-D-YYYY"));
+
+                var promise = Zoobook.Ajax.BaseAjaxWithFileUpload("/Appointments/ToDo/Save", "POST", formData).execute();
+
+                promise.done(function (operationStatus)
+                {
+                    if (operationStatus.isSuccess)
+                    {
+                        var data = operationStatus.data;
+                        var dateToday = moment((new Date()).toLocaleDateString(), "M/D/YYYY");
+                        var dueDate = moment(operationStatus.data.dueDate, "M/D/YYYY");
+
+                        if (dueDate.isSameOrAfter(dateToday))
+                        {
+                            $(formContainer).find("i.isPassDue").parent().remove();
+                        }
+
+                        if (data.isCompleted)
+                        {
+                            $(toDoModalSelector).find('select[name="toDoStatusId"]').attr("disabled", "disabled");
+                        }
+                    }
+
+                    Zoobook.Modules.FormModule().toast(operationStatus.title, operationStatus.message, operationStatus.notifierType);
+                });
+
+                promise.fail(function ()
+                {
+                    Zoobook.Modules.FormModule().globalAlert({ text: "Saving Failed!", type: "error" });
+                });
+
+                promise.always(function ()
+                {
+                    $(blockedElementSelector).unblock();
+                });
+            });
+        });
+    </script>
+
+    
+    
+
+<div class="ui-multiselect-menu ui-widget ui-widget-content ui-corner-all" style="width: 610px;"><div class="ui-widget-header ui-corner-all ui-multiselect-header ui-helper-clearfix ui-multiselect-hasfilter"><div class="ui-multiselect-filter">Filter:<input placeholder="Enter keywords" type="search"></div><ul class="ui-helper-reset"><li><a class="ui-multiselect-all" href="#"><span class="ui-icon ui-icon-check"></span><span>Check all</span></a></li><li><a class="ui-multiselect-none" href="#"><span class="ui-icon ui-icon-closethick"></span><span>Uncheck all</span></a></li><li class="ui-multiselect-close"><a href="#" class="ui-multiselect-close" aria-label="Close button"><span class="ui-icon ui-icon-circle-close"></span></a></li></ul></div><ul class="ui-multiselect-checkboxes ui-helper-reset"><li class=" "><label for="ui-multiselect-dropdown-tracks-option-0" title="" class="ui-corner-all"><input id="ui-multiselect-dropdown-tracks-option-0" name="multiselect_dropdown-tracks" type="checkbox" value="377670" title="N/A"><span tabindex="0">N/A</span></label></li></ul></div></body></html>
